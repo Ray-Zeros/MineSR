@@ -26,6 +26,8 @@ MineSR 的脚本化流程核心包含三步：
 - `capture.py`：按 `capture_list_x_x_x.json` ，执行天气/时间/传送并触发截图热键，记录采集日志。
 - `utils/config_loader.py`：YAML 配置加载器。
 - `utils/window_resize.py`：基于 Win32 API 的 Minecraft 窗口客户区尺寸调整。
+- `utils/logger_utils.py`：公共 logger。
+- `utils/check_spread.py`：从 Minecraft latest.log 检查 `/spreadplayer` 是否异常。
 - `configs/generate_x_x_x.yaml`：x.x 版本的生成配置。
 - `configs/capture_x_x_x.yaml`：x.x 版本的采集阶段配置。
 - `data/biomes_x_x_x.csv`：**手动**编写的群系坐标输入（`biome,x,z`）。
@@ -207,12 +209,20 @@ python capture.py --config ./configs/capture_1_0_0.yaml --wait-time 2.0 --lr-res
 
 #### 3.2 采集配置（`configs/capture_x_x_x.yaml`）
 - `input_file`（str）：输入任务 JSON。
-- `log_file`（str）：采集日志输出路径。
+- `log_suffix`（str）：采集日志输出路径与文件名后缀。
 - `lr_res`（int_pair）：窗口目标分辨率。
 - `hr_res`（int_pair）：高分辨率值，**仅做日志作用，需要在 Resolution Control 菜单手动填写**
 - `wait_time`（float）：每条样本截图前等待时间。用于等待区块加载，若机器性能较好可以适量减小。
 - `mod_key`（str）：Resolution Control 截图热键。
 - `mc_key`（str）：Minecraft 截图热键。
+
+#### 3.3 预加载配置（`maprun.py`）
+
+- `INPUT_FILE`：输入 `capture_list_x_x_x.json` 任务文件
+- `WAIT_TIME`：加载区块等待时间
+- `CHECK_SPREAD`：检查 `/spreadplayers` 指令是否异常的开关，开启时读取 `MC_LOG_PATH` 监听游戏日志
+- `MC_LOG_PATH`：Minecraft 的 `latest.log` 文件地址
+- `LOG_SUFFIX`：日志文件输出位置与文件后缀
 
 ---
 

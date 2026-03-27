@@ -1,13 +1,13 @@
 import pyautogui
 import json
 import time
-import logging
 from utils.config_loader import load_config
 from utils.window_resize import resize_minecraft_window
+from utils.logger_utils import build_timestamped_log_file, get_logger
 
 CONFIG_SCHEMA = [
     {"name": "input_file", "type": "str", "default": "./data/coords_list_1_0_0.json", "help": "Input task JSON"},
-    {"name": "log_file", "type": "str", "default": "./logs/capture.log", "help": "Capture log output path"},
+    {"name": "log_suffix", "type": "str", "default": "./logs/capture", "help": "Capture log suffix"},
     {"name": "lr_res", "type": "int_pair", "default": [480, 270], "help": "Target window resolution"},
     {"name": "hr_res", "type": "int_pair", "default": [1920, 1080], "help": "High-resolution value, used only for logging, requires manual input in the Resolution Control Menu"},
     {"name": "wait_time", "type": "float", "default": 3.5, "help": "Wait time before every doubled-screenshot"},
@@ -18,25 +18,6 @@ CONFIG_SCHEMA = [
 # 3840x2160 1920x1080 960x540 480x270
 # 2560x1440 1280x720 640x360 320x180
 
-def _get_logger(log_file):
-    logger = logging.getLogger("capture")
-    if logger.handlers:
-        return logger
-
-    logger.setLevel(logging.INFO)
-    formatter = logging.Formatter("%(asctime)s | %(levelname)s | %(message)s")
-
-    stream_handler = logging.StreamHandler()
-    stream_handler.setFormatter(formatter)
-    logger.addHandler(stream_handler)
-
-    file_handler = logging.FileHandler(log_file, encoding="utf-8", delay=True)
-    file_handler.setFormatter(formatter)
-    logger.addHandler(file_handler)
-
-    logger.propagate = False
-    return logger
-
 def send_cmd(cmd):
     pyautogui.press('t')
     pyautogui.write(cmd)
@@ -44,14 +25,15 @@ def send_cmd(cmd):
 
 def run_capture(cfg):
     input_file = cfg["input_file"]
-    log_file = cfg["log_file"]
+    log_suffix = cfg["log_suffix"]
+    log_file = build_timestamped_log_file(log_suffix)
     lr_res = cfg["lr_res"]
     hr_res = cfg["hr_res"]
     wait_time = cfg["wait_time"]
     mod_key = cfg["mod_key"]
     mc_key = cfg["mc_key"]
 
-    logger = _get_logger(log_file)
+    logger = get_logger("capture", log_file, include_console=True)
     start_time = time.perf_counter()
 
     try:

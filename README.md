@@ -27,6 +27,8 @@ When performing chunk preloading or automated screenshots, Minecraft must remain
 - `capture.py`: Executes weather/time changes, teleportation, and triggers screenshot hotkeys based on `capture_list_x_x_x.json`, logging the capture process.
 - `utils/config_loader.py`: YAML configuration loader.
 - `utils/window_resize.py`: Minecraft window client area resizing based on Win32 API.
+- `utils/logger_utils.py`: public logger.
+- `utils/check_spread.py`: Verify /spreadplayers execution via Minecraft latest.log.
 - `configs/generate_x_x_x.yaml`: Generation configuration for version x.x.
 - `configs/capture_x_x_x.yaml`: Capture-stage configuration for version x.x.
 - `data/biomes_x_x_x.csv`: **Manual** Biome coordinate inputs (`biome,x,z`).
@@ -207,12 +209,20 @@ After `generate.py` reads the configuration, the generated JSON's `config` will 
 
 #### 3.2 Capture Configuration (`configs/capture_x_x_x.yaml`)
 - `input_file` (str): Input task JSON.
-- `log_file` (str): Capture log output path.
+- `log_file` (str): Capture log output path and filename suffix for logs.
 - `lr_res` (int_pair): Target window resolution.
 - `hr_res` (int_pair): High-resolution value, **used only for logging, requires manual input in the Resolution Control Menu**.
 - `wait_time` (float): Wait time before capturing each sample screenshot. Used to wait for blocks to load; can be reduced if the machine performance is good.
 - `mod_key` (str): Resolution Control screenshot hotkey.
 - `mc_key` (str): Minecraft screenshot hotkey.
+
+#### 3.3 Pre-loading Configuration (`maprun.py`)
+
+- `INPUT_FILE`: The input task file (e.g., `capture_list_x_x_x.json`).
+- `WAIT_TIME`: Wait time for chunk loading.
+- `CHECK_SPREAD`: A toggle to detect `/spreadplayers` command errors. When enabled, it monitors game logs via `MC_LOG_PATH`.
+- `MC_LOG_PATH`: The file path to the Minecraft `latest.log`.
+- `LOG_SUFFIX`: The output directory and file extension for the log files.
 
 ---
 
