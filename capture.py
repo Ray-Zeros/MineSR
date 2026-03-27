@@ -65,7 +65,7 @@ def run_capture(cfg):
     config = data.get("config", {})
     coords = data.get("coords", [])
 
-    enable_y = bool(config.get("enable_Y", False))
+    enable_y = bool(config.get("enable_y", False))
 
     logger.info(
         "Capture started: input=%s, total=%d, enable_y=%s, wait_time=%.2f, lr_res=%sx%s, hr_res=%sx%s",
@@ -98,11 +98,22 @@ def run_capture(cfg):
 
         send_cmd(f"/weather clear")
         
-        if enable_y:
-            send_cmd(f"/tp @s {entry['x']} {entry['y']} {entry['z']} {entry['yaw']} {entry['pitch']}")
-            
+        y_value = entry.get("y", None)
+        use_exact_y = False
+        parsed_y = None
+
+        if enable_y and y_value is not None:
+            try:
+                parsed_y = int(y_value)
+                use_exact_y = True
+            except (TypeError, ValueError):
+                logger.error("Invalid y for ID %s, y=%r. This record is skipped.", entry.get("id", "Unknown"), y_value)
+                continue
+
+        if use_exact_y:
+            send_cmd(f"/tp @s {entry['x']} {parsed_y} {entry['z']} {entry['yaw']} {entry['pitch']}")
         else:
-            # enable_Y=False 时执行 spreadplayers 确保落在地表。这里并不是精准坐标，需要再次tp。
+            # Fallback path: use surface placement when y is disabled or y is null.
             send_cmd(f"/spreadplayers {entry['x']} {entry['z']} 0 1 false @s")
             send_cmd(f"/tp @s {entry['x']} ~ {entry['z']} {entry['yaw']} {entry['pitch']}")
         

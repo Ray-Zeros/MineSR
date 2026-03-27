@@ -7,6 +7,7 @@ CONFIG_SCHEMA = [
     {"name": "total_samples", "type": "int", "default": 1, "help": "Total number of samples, i.e., how many pairs of screenshots to capture."},
     {"name": "seed", "type": "int", "default": 5277617577473417202, "allow_none": False, "help": "Map seed (required non-null integer, used for recording/reproducibility)"},
     {"name": "enable_y", "type": "bool", "default": False, "help": "Whether to enable Y-axis coordinates"},
+    {"name": "random_y", "type": "bool", "default": False, "help": "When enable_y is true in auto mode, whether to randomly generate y; if false, y will be null"},
     {"name": "enable_manual", "type": "bool", "default": False, "help": "Whether to enable manual input mode, if enabled, the script will read coordinates from a CSV file instead of generating them randomly"},
     {"name": "manual_csv_file", "type": "str", "default": "./data/coords_1_0_0.csv", "help": "Manual task input CSV"},
     {"name": "biomes_csv_file", "type": "str", "default": "./data/biomes_1_0_0.csv", "help": "Biome center input CSV"},
@@ -64,6 +65,7 @@ def _load_biome_coords(
     pitch_max,
     time_points,
     enable_y,
+    random_y,
 ):
     biomes = _load_biomes(biomes_csv_file)
     coords_list = []
@@ -96,6 +98,7 @@ def _load_biome_coords(
                     pitch=pitch,
                     time_point=time_point,
                     enable_y=enable_y,
+                    random_y=random_y,
                 )
             )
             sample_id += 1
@@ -118,7 +121,7 @@ def _required_columns(enable_y):
     return columns
 
 
-def _build_coord_entry(sample_id, biome_name, x, z, yaw, pitch, time_point, enable_y):
+def _build_coord_entry(sample_id, biome_name, x, z, yaw, pitch, time_point, enable_y, random_y):
     entry = {
         "id": sample_id,
         "biome": biome_name,
@@ -129,7 +132,10 @@ def _build_coord_entry(sample_id, biome_name, x, z, yaw, pitch, time_point, enab
         "z": z,
     }
     if enable_y:
-        entry["y"] = random.randint(-64, 319)
+        if random_y:
+            entry["y"] = random.randint(-64, 319)
+        else:
+            entry["y"] = None
     return entry
 
 
@@ -219,6 +225,7 @@ def generate_list(cfg):
     total_samples = cfg["total_samples"]
     seed = _get_manual_seed(cfg["seed"])
     enable_y = cfg["enable_y"]
+    random_y = cfg["random_y"]
     enable_manual = cfg["enable_manual"]
     manual_csv_file = cfg["manual_csv_file"]
     biomes_csv_file = cfg["biomes_csv_file"]
@@ -233,6 +240,9 @@ def generate_list(cfg):
 
     random.seed(seed)
 
+    # random_y only applies in auto mode with enable_y=true.
+    bool_random_y = bool(enable_y and random_y and (not enable_manual))
+
     if enable_manual:
         coords_list = _load_manual_coords(manual_csv_file, total_samples, enable_y)
     else:
@@ -246,10 +256,13 @@ def generate_list(cfg):
             pitch_max=pitch_max,
             time_points=time_points,
             enable_y=enable_y,
+            random_y=bool_random_y,
         )
 
     output_config = {
+        "total_samples": total_samples,
         "enable_y": enable_y,
+        "random_y": bool_random_y,
         "enable_manual": enable_manual,
         "seed": seed,
         "coordinate_offset": coordinate_offset,
