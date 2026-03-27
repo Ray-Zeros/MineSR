@@ -22,16 +22,16 @@ When performing chunk preloading or automated screenshots, Minecraft must remain
 
 ### Project Structure
 
-- `generate.py`: Generates `coords_list_x_x_x.json` from `biomes_x_x_x.csv` or `coords_x_x_x.csv`.
-- `maprun.py`: Preloads chunks in the game via teleportation according to `coords_list_x_x_x.json`.
-- `capture.py`: Executes weather/time changes, teleportation, and triggers screenshot hotkeys based on `coords_list_x_x_x.json`, logging the capture process.
+- `generate.py`: Generates `capture_list_x_x_x.json` from `biomes_x_x_x.csv` or `coords_x_x_x.csv`.
+- `maprun.py`: Preloads chunks in the game via teleportation according to `capture_list_x_x_x.json`.
+- `capture.py`: Executes weather/time changes, teleportation, and triggers screenshot hotkeys based on `capture_list_x_x_x.json`, logging the capture process.
 - `utils/config_loader.py`: YAML configuration loader.
 - `utils/window_resize.py`: Minecraft window client area resizing based on Win32 API.
 - `configs/generate_x_x_x.yaml`: Generation configuration for version x.x.
 - `configs/capture_x_x_x.yaml`: Capture-stage configuration for version x.x.
 - `data/biomes_x_x_x.csv`: **Manual** Biome coordinate inputs (`biome,x,z`).
 - `data/coords_x_x_x.csv`: **Manual** task inputs (optional).
-- `data/coords_list_x_x_x.json`: Task file **generated** by `generate.py`, used by the maprun/capture scripts.
+- `data/capture_list_x_x_x.json`: Task file **generated** by `generate.py`, used by the maprun/capture scripts.
 
 ## Note
 
@@ -159,11 +159,11 @@ python capture.py --config configs/capture_1_0_0.yaml
 You can override YAML defaults via the command line. Example:
 
 ```bash
-python generate.py --config ./configs/generate_1_0_0.yaml --total-samples 1840 --seed 42 --output-file ./data/coords_list.json
+python generate.py --config ./configs/generate_1_0_0.yaml --total-samples 1840 --seed 42 --output-file ./data/capture_list.json
 python capture.py --config ./configs/capture_1_0_0.yaml --wait-time 2.0 --lr-res 480 270 --input-file ./data/coords_list.json
 ```
 > [!NOTE]
-> `maprun.py` does not have an independent configuration file; you need to manually modify the `INPUT_FILE` in the code to point to the target `coords_list_x_x_x.json`.
+> `maprun.py` does not have an independent configuration file; you need to manually modify the `INPUT_FILE` in the code to point to the target `capture_list_x_x_x.json`.
 > Therefore, if you modify the `output_file` in `generate_x_x_x.yaml`, please synchronously update `maprun.py`.
 
 ### 3. Configuration Instructions
@@ -270,7 +270,7 @@ If `enable_y=true`, each record will additionally contain a `y` field.
 
 **If you need to replicate this dataset**, please select the corresponding configuration file depending on the version and synchronize the instructed environment configuration. Using version 1.0 as an example:
 ```bash
-# Generate coords_list_1_0_0.json manually from biomes_1_0_0.csv
+# Generate capture_list_1_0_0.json manually from biomes_1_0_0.csv
 python generate.py --config configs/generate_1_0_0.yaml
 # (Optional, requires Minecraft to be the main window) Preload chunks
 python maprun.py

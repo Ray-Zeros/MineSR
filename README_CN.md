@@ -21,16 +21,16 @@ MineSR 的脚本化流程核心包含三步：
 进行区块预加载或自动截图时，Minecraft 需要保持为主窗口，这意味着脚本运行时不能同时进行其他前台操作。
 ### 项目结构
 
-- `generate.py`：从 `biomes_x_x_x.csv` 或 `coords_x_x_x.csv` 生成`coords_list_x_x_x.json`。
-- `maprun.py`：按 `coords_list_x_x_x.json` 在游戏通过传送预加载区块。
-- `capture.py`：按 `coords_list_x_x_x.json` ，执行天气/时间/传送并触发截图热键，记录采集日志。
+- `generate.py`：从 `biomes_x_x_x.csv` 或 `coords_x_x_x.csv` 生成`capture_list_x_x_x.json`。
+- `maprun.py`：按 `capture_list_x_x_x.json` 在游戏通过传送预加载区块。
+- `capture.py`：按 `capture_list_x_x_x.json` ，执行天气/时间/传送并触发截图热键，记录采集日志。
 - `utils/config_loader.py`：YAML 配置加载器。
 - `utils/window_resize.py`：基于 Win32 API 的 Minecraft 窗口客户区尺寸调整。
 - `configs/generate_x_x_x.yaml`：x.x 版本的生成配置。
 - `configs/capture_x_x_x.yaml`：x.x 版本的采集阶段配置。
 - `data/biomes_x_x_x.csv`：**手动**编写的群系坐标输入（`biome,x,z`）。
 - `data/coords_x_x_x.csv`：**手动**任务输入（可选）。
-- `data/coords_list_x_x_x.json`：`generate.py` **生成**的任务文件，供 maprun/capture 脚本使用。
+- `data/capture_list_x_x_x.json`：`generate.py` **生成**的任务文件，供 maprun/capture 脚本使用。
 
 ## 说明
 
@@ -159,11 +159,11 @@ python capture.py --config configs/capture_1_0_0.yaml
 可以通过命令行覆盖 YAML 默认值，示例：
 
 ```bash
-python generate.py --config ./configs/generate_1_0_0.yaml --total-samples 1840 --seed 42 --output-file ./data/coords_list.json
-python capture.py --config ./configs/capture_1_0_0.yaml --wait-time 2.0 --lr-res 480 270 --input-file ./data/coords_list.json
+python generate.py --config ./configs/generate_1_0_0.yaml --total-samples 1840 --seed 42 --output-file ./data/capture_list_1_0_0.json
+python capture.py --config ./configs/capture_1_0_0.yaml --wait-time 2.0 --lr-res 480 270 --input-file ./data/capture_list_1_0_0.json
 ```
 > [!NOTE]
-> `maprun.py` 没有独立配置文件，需要手动修改代码中的 `INPUT_FILE` 指向目标 `coords_list_x_x_x.json`。
+> `maprun.py` 没有独立配置文件，需要手动修改代码中的 `INPUT_FILE` 指向目标 `capture_list_x_x_x.json`。
 > 因此如果你修改了 `generate_x_x_x.yaml` 的 `output_file`，请同步修改 `maprun.py`。
 
 ### 3. 配置说明
@@ -270,7 +270,7 @@ _对难以自动生成的位置（如洞穴）可使用手动任务。_
 
 **如果你需要复现此数据集**，请根据版本选取对应的配置文件，同步指示的环境配置。以 1.0 版本为例：
 ```bash
-# 利用 biomes_1_0_0.csv 生成 coords_list_1_0_0.json
+# 利用 biomes_1_0_0.csv 生成 capture_list_1_0_0.json
 python generate.py --config configs/generate_1_0_0.yaml
 # (可选，需要主窗口为Minecraft）预加载区块
 python maprun.py
