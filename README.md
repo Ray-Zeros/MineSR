@@ -218,11 +218,11 @@ After `generate.py` reads the configuration, the generated JSON's `config` will 
 
 #### 3.3 Pre-loading Configuration (`maprun.py`)
 
-- **`INPUT_FILE`**: The input task file (e.g., `capture_list_x_x_x.json`).
-- **`WAIT_TIME`**: Wait time for chunk loading.
-- **`CHECK_SPREAD`**: A toggle to detect `/spreadplayers` command errors. When enabled, it monitors game logs via `MC_LOG_PATH`.
-- **`MC_LOG_PATH`**: The file path to the Minecraft `latest.log`.
-- **`LOG_SUFFIX`**: The output directory and file extension for the log files.
+- `INPUT_FILE`: The input task file (e.g., `capture_list_x_x_x.json`).
+- `WAIT_TIME`: Wait time for chunk loading.
+- `CHECK_SPREAD`: A toggle to detect `/spreadplayers` command errors. When enabled, it monitors game logs via `MC_LOG_PATH`.
+- `MC_LOG_PATH`: The file path to the Minecraft `latest.log`.
+- `LOG_SUFFIX`: The output directory and file extension for the log files.
 
 ---
 
