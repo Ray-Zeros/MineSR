@@ -1,7 +1,6 @@
 import pyautogui
 import json
 import time
-from utils.check_spread import init_log_cursor, check_spread_exception
 from utils.logger_utils import build_timestamped_log_file, get_logger
 
 ###########################################
@@ -18,8 +17,6 @@ from utils.logger_utils import build_timestamped_log_file, get_logger
 INPUT_FILE = "./data/capture_list_1_0_0.json"
 WAIT_TIME = 1.0
 
-CHECK_SPREAD = True
-MC_LOG_PATH = r"...\logs\latest.log"
 LOG_SUFFIX = "./logs/maprun"
 
 def send_cmd(cmd):
@@ -28,16 +25,7 @@ def send_cmd(cmd):
     pyautogui.press('enter')
 
 def run_map():
-    logger = get_logger("maprun", build_timestamped_log_file(LOG_SUFFIX), include_console=False)
-    spread_cursor = None
-    can_check_spread = False
-
-    if CHECK_SPREAD:
-        spread_cursor = init_log_cursor(MC_LOG_PATH)
-        if spread_cursor is None:
-            print(f"Spread check is enabled but MC log file was not found: {MC_LOG_PATH}")
-        else:
-            can_check_spread = True
+    logger = get_logger("maprun", build_timestamped_log_file(LOG_SUFFIX), include_console=True)
 
     try:
         with open(INPUT_FILE, "r") as f:
@@ -56,7 +44,6 @@ def run_map():
     for entry in coords:
         biome_name = entry.get("biome", "Unknown")
         logger.info("Processing data id %s, current biome: %s", entry["id"], biome_name)
-        spread_exception_hit = False
 
         y_value = entry.get("y", None)
         use_exact_y = False
@@ -73,22 +60,16 @@ def run_map():
         if use_exact_y:
             send_cmd(f"/tp @s {entry['x']} {parsed_y} {entry['z']} {entry['yaw']} {entry['pitch']}")
         else:
-            send_cmd(f"/spreadplayers {entry['x']} {entry['z']} 0 1 false @s")
-            if can_check_spread:
-                time.sleep(0.2)
-                spread_cursor, spread_error = check_spread_exception(MC_LOG_PATH, spread_cursor)
-                if spread_error:
-                    spread_exception_hit = True
-                    logger.warning("Spreadplayers exception for id %s: %s", entry["id"], spread_error)
-            send_cmd(f"/tp @s {entry['x']} ~ {entry['z']} {entry['yaw']} {entry['pitch']}")
+            send_cmd(f"/tp @s {entry['x']} ~ {entry['z']} {entry['yaw']} {entry['pitch']}") # load chunk
+            send_cmd(f"/execute positioned {entry['x']} 0 {entry['z']} positioned over ocean_floor run tp @s ~ ~ ~ {entry['yaw']} {entry['pitch']}")
+            
+            # send_cmd(f"/spreadplayers {entry['x']} {entry['z']} 0 1 false @s")
+            # send_cmd(f"/tp @s {entry['x']} ~ {entry['z']} {entry['yaw']} {entry['pitch']}")
         
         # 等待区块加载
         time.sleep(WAIT_TIME)
 
-        if CHECK_SPREAD and spread_exception_hit:
-            print(f"Data id {entry['id']} processed with spreadplayer exception, please check log file")
-        else:
-            print(f"Data id {entry['id']} processed successfully.")
+        print(f"Data id {entry['id']} processed successfully.")
 
     print("All map preloading completed.")
 
