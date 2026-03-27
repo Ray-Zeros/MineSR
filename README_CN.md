@@ -2,7 +2,9 @@
 
 > 数据集正在制作中，完毕后会上传链接。
 
-[English](README.md) | [简体中文](README_CN.md)
+<p align="center">
+  <a href="README.md">English</a> | <a href="README_CN.md">简体中文</a>
+</p>
 
 ## 概述
 本仓库提供了制作 **MineSR 数据集** 的自动化脚本。MineSR 数据集旨在提供 Minecraft 高分辨率（1080P，通过模组获取）与低分辨率（270P，通过原版截图获取）成对图像，以支持超分辨率模型训练。
@@ -26,9 +28,9 @@ MineSR 的脚本化流程核心包含三步：
 - `utils/window_resize.py`：基于 Win32 API 的 Minecraft 窗口客户区尺寸调整。
 - `configs/generate_x_x_x.yaml`：x.x 版本的生成配置。
 - `configs/capture_x_x_x.yaml`：x.x 版本的采集阶段配置。
-- `data/biomes_x_x_x.csv`：群系坐标输入（`biome,x,z`）。
+- `data/biomes_x_x_x.csv`：**手动**编写的群系坐标输入（`biome,x,z`）。
 - `data/coords_x_x_x.csv`：**手动**任务输入（可选）。
-- `data/coords_list_x_x_x.json`：`generate.py` 生成的任务文件，供 maprun/capture 脚本使用。
+- `data/coords_list_x_x_x.json`：`generate.py` **生成**的任务文件，供 maprun/capture 脚本使用。
 
 ## 说明
 
@@ -197,7 +199,7 @@ python capture.py --config ./configs/capture_1_0_0.yaml --wait-time 2.0 --lr-res
 
 `generate.py` 读取配置后，生成的 JSON 的 `config` 中会记录：
 
-- `enable_Y`、`enable_Manual`、`seed`、`coordinate_offset`、`yaw_range`、`pitch_range`、`time_points`
+- `enable_Y`、`enable_manual`、`seed`、`coordinate_offset`、`yaw_range`、`pitch_range`、`time_points`
 - 并根据模式仅保留一个来源字段：
 	- 手动模式：`manual_csv_file`
 	- 自动模式：`biomes_csv_file`
