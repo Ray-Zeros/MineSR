@@ -1,11 +1,9 @@
 import pyautogui
 import json
 import time
-import logging
-from datetime import datetime
-from pathlib import Path
 from utils.config_loader import load_config
 from utils.window_resize import resize_minecraft_window
+from utils.logger_utils import build_timestamped_log_file, get_logger
 
 CONFIG_SCHEMA = [
     {"name": "input_file", "type": "str", "default": "./data/coords_list_1_0_0.json", "help": "Input task JSON"},
@@ -20,32 +18,6 @@ CONFIG_SCHEMA = [
 # 3840x2160 1920x1080 960x540 480x270
 # 2560x1440 1280x720 640x360 320x180
 
-def _build_log_file(log_suffix):
-    suffix_path = Path(log_suffix)
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    suffix_name = suffix_path.stem if suffix_path.suffix else suffix_path.name
-    return str(suffix_path.with_name(f"{timestamp}_{suffix_name}.log"))
-
-def _get_logger(log_file):
-    logger = logging.getLogger("capture")
-    if logger.handlers:
-        return logger
-
-    logger.setLevel(logging.INFO)
-    formatter = logging.Formatter("%(asctime)s | %(levelname)s | %(message)s")
-
-    stream_handler = logging.StreamHandler()
-    stream_handler.setFormatter(formatter)
-    logger.addHandler(stream_handler)
-
-    Path(log_file).parent.mkdir(parents=True, exist_ok=True)
-    file_handler = logging.FileHandler(log_file, encoding="utf-8", delay=True)
-    file_handler.setFormatter(formatter)
-    logger.addHandler(file_handler)
-
-    logger.propagate = False
-    return logger
-
 def send_cmd(cmd):
     pyautogui.press('t')
     pyautogui.write(cmd)
@@ -54,14 +26,14 @@ def send_cmd(cmd):
 def run_capture(cfg):
     input_file = cfg["input_file"]
     log_suffix = cfg["log_suffix"]
-    log_file = _build_log_file(log_suffix)
+    log_file = build_timestamped_log_file(log_suffix)
     lr_res = cfg["lr_res"]
     hr_res = cfg["hr_res"]
     wait_time = cfg["wait_time"]
     mod_key = cfg["mod_key"]
     mc_key = cfg["mc_key"]
 
-    logger = _get_logger(log_file)
+    logger = get_logger("capture", log_file, include_console=True)
     start_time = time.perf_counter()
 
     try:
