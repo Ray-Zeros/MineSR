@@ -207,7 +207,7 @@ After `generate.py` reads the configuration, the generated JSON's `config` will 
 
 #### 3.2 Capture Configuration (`configs/capture_x_x_x.yaml`)
 - `input_file` (str): Input task JSON.
-- `log_file` (str): Capture log output path.
+- `log_file` (str): Capture log output path and filename suffix for logs.
 - `lr_res` (int_pair): Target window resolution.
 - `hr_res` (int_pair): High-resolution value, **used only for logging, requires manual input in the Resolution Control Menu**.
 - `wait_time` (float): Wait time before capturing each sample screenshot. Used to wait for blocks to load; can be reduced if the machine performance is good.

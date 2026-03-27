@@ -207,7 +207,7 @@ python capture.py --config ./configs/capture_1_0_0.yaml --wait-time 2.0 --lr-res
 
 #### 3.2 采集配置（`configs/capture_x_x_x.yaml`）
 - `input_file`（str）：输入任务 JSON。
-- `log_file`（str）：采集日志输出路径。
+- `log_suffix`（str）：采集日志输出路径与文件名后缀。
 - `lr_res`（int_pair）：窗口目标分辨率。
 - `hr_res`（int_pair）：高分辨率值，**仅做日志作用，需要在 Resolution Control 菜单手动填写**
 - `wait_time`（float）：每条样本截图前等待时间。用于等待区块加载，若机器性能较好可以适量减小。
