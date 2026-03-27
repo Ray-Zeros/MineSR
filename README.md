@@ -28,7 +28,6 @@ When performing chunk preloading or automated screenshots, Minecraft must remain
 - `utils/config_loader.py`: YAML configuration loader.
 - `utils/window_resize.py`: Minecraft window client area resizing based on Win32 API.
 - `utils/logger_utils.py`: public logger.
-- `utils/check_spread.py`: Verify /spreadplayers execution via Minecraft latest.log.
 - `configs/generate_x_x_x.yaml`: Generation configuration for version x.x.
 - `configs/capture_x_x_x.yaml`: Capture-stage configuration for version x.x.
 - `data/biomes_x_x_x.csv`: **Manual** Biome coordinate inputs (`biome,x,z`).
@@ -187,7 +186,7 @@ Some configuration parameters are not directly related to the sampling process b
 - `total_samples` (int): Total number of samples, i.e., how many pairs of screenshots to capture.
 - `seed` (int): Map seed, **used only for logging, must be filled manually**.
 - `enable_y` (bool): Whether to output the Y-axis. When enabled, the output will include a `y` field. This option affects `enable_manual`.
-- `random_y` (bool): Whether to enable random generation of Y-axis values. When enabled, the `/tp` logic is used, requiring manual entry of the desired coordinates; for unspecified coordinates or when disabled, the `/spreadplayer` logic is used. This option does not affect `enable_manual`.
+- **`random_y` (bool)**: Toggles random Y-axis values. When enabled, it uses `/tp` logic and requires manual coordinates. If disabled or left blank, it falls back to `/execute positioned ... over ocean_floor ...` logic. This option does not affect `enable_manual`.
 - `enable_manual` (bool):
     - `true`: Read from `manual_csv_file`.
     - `false`: Auto-generate from `biomes_csv_file`.
@@ -220,8 +219,6 @@ After `generate.py` reads the configuration, the generated JSON's `config` will 
 
 - `INPUT_FILE`: The input task file (e.g., `capture_list_x_x_x.json`).
 - `WAIT_TIME`: Wait time for chunk loading.
-- `CHECK_SPREAD`: A toggle to detect `/spreadplayers` command errors. When enabled, it monitors game logs via `MC_LOG_PATH`.
-- `MC_LOG_PATH`: The file path to the Minecraft `latest.log`.
 - `LOG_SUFFIX`: The output directory and file extension for the log files.
 
 ---
@@ -297,7 +294,8 @@ Screenshots will be saved in the screenshots folder of your Minecraft directory.
 ## About Dataset Replication
 
 Unlike specialized rendering engines, due to the dynamic nature of the game environment, it is difficult to control variables such as Minecraft's frametime. This may cause discrepancies when attempting to reproduce events like Minecraft's animation playback or frametime-based calculations (some shaderpacks): e.g., cloud movement, raindrop effects, and lava animations.
- Since the Minecraft `/spreadplayers` command refuses to execute in unsafe locations (such as on water or lava), the script's subsequent use of `/tp` may cause players to spawn in mid-air or underground. In cases of falling into water, even with a long `WAIT_TIME`, players may remain in a falling state due to deep water, which can lead to inconsistencies between screenshots. If spawned underground, the camera view will be obstructed by blocks (a problem particularly severe in Ocean biomes). If you still require random coordinates, you should enable `enable_y` and disable `random_y`. This ensures the generated Y-coordinates are recognizable placeholder values rather than being used for teleportation. You can then manually find a safe Y-value for those stuck/floating points and update the `coords` field in the `json` file.
+The command `/execute positioned x 0 z positioned over ocean_floor run tp @s ~ ~ ~` can be used as an alternative to `/spreadplayers`. It ensures players are teleported onto a solid block, avoiding issues caused by the latter's failure to execute under certain conditions.
+The role of `random_y` has been updated: it now allows for manual Y-axis control over specific coordinates while X and Z are randomized. You should enable `enable_y` and disable `random_y`. Thisensures the generated Y-coordinates are recognizable placeholder values rather than being used forteleportation. You can then manually find a safe Y-value for those ~~stuck/floating points~~caves or other positions outside of the ground and updatethe `coords` field in the `json` file.
 The method I am using combines in-game screenshots (F2) and Mod screenshots, but `pyautogui.hotkey()` cannot make these two commands function strictly simultaneously on the machine. The operational rendering pipeline itself also does not support this logic, so it is hard to maintain absolute consistency between HR and LR during actual runtime. Although this has almost no impact on static scenes (such as daytime variations), it can be quite obvious in dynamic scenes (especially raindrop effects). This introduces a certain degree of randomness for degradation models; thus, compared to using downsampling algorithms, the capture methodology itself and game characteristics make my dataset difficult to perfectly reproduce. ~~However, I believe that the random discrepancies between LR-HR pairs objectively increase the complexity of degradation model construction, enhancing the model's robustness in complex dynamic scenarios.~~
 
 Although I used <https://github.com/UltimateBoomer/Resolution-Control> as a secondary screenshot method, I also locally modified its 1.20 branch to allow it to take a screenshot at the corresponding resolution in the frame immediately after capturing, achieving an approximate "simultaneous acquisition" effect. Tests show that this approach has no significant gap compared with this project's original solution (mixed vanilla screenshots). In detail, the falling of raindrops in Minecraft still cannot be precisely matched between the two images, which is a fundamental issue.
