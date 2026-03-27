@@ -21,16 +21,16 @@ MineSR 的脚本化流程核心包含三步：
 进行区块预加载或自动截图时，Minecraft 需要保持为主窗口，这意味着脚本运行时不能同时进行其他前台操作。
 ### 项目结构
 
-- `generate.py`：从 `biomes_x_x_x.csv` 或 `coords_x_x_x.csv` 生成`coords_list_x_x_x.json`。
-- `maprun.py`：按 `coords_list_x_x_x.json` 在游戏通过传送预加载区块。
-- `capture.py`：按 `coords_list_x_x_x.json` ，执行天气/时间/传送并触发截图热键，记录采集日志。
+- `generate.py`：从 `biomes_x_x_x.csv` 或 `coords_x_x_x.csv` 生成`capture_list_x_x_x.json`。
+- `maprun.py`：按 `capture_list_x_x_x.json` 在游戏通过传送预加载区块。
+- `capture.py`：按 `capture_list_x_x_x.json` ，执行天气/时间/传送并触发截图热键，记录采集日志。
 - `utils/config_loader.py`：YAML 配置加载器。
 - `utils/window_resize.py`：基于 Win32 API 的 Minecraft 窗口客户区尺寸调整。
 - `configs/generate_x_x_x.yaml`：x.x 版本的生成配置。
 - `configs/capture_x_x_x.yaml`：x.x 版本的采集阶段配置。
 - `data/biomes_x_x_x.csv`：**手动**编写的群系坐标输入（`biome,x,z`）。
 - `data/coords_x_x_x.csv`：**手动**任务输入（可选）。
-- `data/coords_list_x_x_x.json`：`generate.py` **生成**的任务文件，供 maprun/capture 脚本使用。
+- `data/capture_list_x_x_x.json`：`generate.py` **生成**的任务文件，供 maprun/capture 脚本使用。
 
 ## 说明
 
@@ -159,11 +159,11 @@ python capture.py --config configs/capture_1_0_0.yaml
 可以通过命令行覆盖 YAML 默认值，示例：
 
 ```bash
-python generate.py --config ./configs/generate_1_0_0.yaml --total-samples 1840 --seed 42 --output-file ./data/coords_list.json
-python capture.py --config ./configs/capture_1_0_0.yaml --wait-time 2.0 --lr-res 480 270 --input-file ./data/coords_list.json
+python generate.py --config ./configs/generate_1_0_0.yaml --total-samples 1840 --seed 42 --output-file ./data/capture_list_1_0_0.json
+python capture.py --config ./configs/capture_1_0_0.yaml --wait-time 2.0 --lr-res 480 270 --input-file ./data/capture_list_1_0_0.json
 ```
 > [!NOTE]
-> `maprun.py` 没有独立配置文件，需要手动修改代码中的 `INPUT_FILE` 指向目标 `coords_list_x_x_x.json`。
+> `maprun.py` 没有独立配置文件，需要手动修改代码中的 `INPUT_FILE` 指向目标 `capture_list_x_x_x.json`。
 > 因此如果你修改了 `generate_x_x_x.yaml` 的 `output_file`，请同步修改 `maprun.py`。
 
 ### 3. 配置说明
@@ -184,7 +184,8 @@ python capture.py --config ./configs/capture_1_0_0.yaml --wait-time 2.0 --lr-res
 #### 3.1 生成配置（`configs/generate_x_x_x.yaml`）
 - `total_samples`（int）：总样本数，即采样多少对截图。
 - `seed`（int）：地图种子，**仅做日志作用，需要手动填写**。
-- `enable_y`（bool）：是否输出 Y 轴。启用时输出将包含 `y` 字段。
+- `enable_y`（bool）：是否输出 Y 轴。启用时输出将包含 `y` 字段。此选项影响 `enable_manual`。
+- `random_y`（bool）：是否启用随机生成 Y 轴数值。启用时使用 `/tp` 逻辑，需要为所需坐标手动填写，未填写部分/关闭时使用 `/spreadplayer` 逻辑。此选项不影响 `enable_manual`。
 - `enable_manual`（bool）：
 	- `true`：从 `manual_csv_file` 读取。
 	- `false`：从 `biomes_csv_file` 自动生成。
@@ -199,7 +200,7 @@ python capture.py --config ./configs/capture_1_0_0.yaml --wait-time 2.0 --lr-res
 
 `generate.py` 读取配置后，生成的 JSON 的 `config` 中会记录：
 
-- `enable_Y`、`enable_manual`、`seed`、`coordinate_offset`、`yaw_range`、`pitch_range`、`time_points`
+- `total_samples`、`enable_y`、`random_y`、`enable_manual`、`seed`、`coordinate_offset`、`yaw_range`、`pitch_range`、`time_points`
 - 并根据模式仅保留一个来源字段：
 	- 手动模式：`manual_csv_file`
 	- 自动模式：`biomes_csv_file`
@@ -217,7 +218,7 @@ python capture.py --config ./configs/capture_1_0_0.yaml --wait-time 2.0 --lr-res
 
 ### 4. 数据格式
 
-#### 4.1 群系中心 `data/biomes_1_0_0.csv`
+#### 4.1 群系中心 `data/biomes_x_x_x.csv`
 
 表头顺序固定：
 
@@ -226,7 +227,7 @@ biome,x,z
 ```
 _你可以使用一些种子查看器来搜寻群系坐标，从而更方便地编写此文件。_
 
-#### 4.2 手动任务 `data/coords_1_0_0.csv`
+#### 4.2 手动任务 `data/coords_x_x_x.csv`
 
 `enable_y=false` 时：
 
@@ -269,7 +270,7 @@ _对难以自动生成的位置（如洞穴）可使用手动任务。_
 
 **如果你需要复现此数据集**，请根据版本选取对应的配置文件，同步指示的环境配置。以 1.0 版本为例：
 ```bash
-# 利用 biomes_1_0_0.csv 生成 coords_list_1_0_0.json
+# 利用 biomes_1_0_0.csv 生成 capture_list_1_0_0.json
 python generate.py --config configs/generate_1_0_0.yaml
 # (可选，需要主窗口为Minecraft）预加载区块
 python maprun.py
@@ -286,6 +287,7 @@ python capture.py --config configs/capture_1_0_0.yaml
 ## 关于数据集复现
 
 不同于专门的渲染引擎，由于游戏环境的动态特性，我们难以控制Minecraft的frametime等变量，这可能会使得Minecraft的动画播放、基于frametime的计算（一些shaderpacks）等事件，在尝试复现时存在差异：例如云层飘动、雨滴效果、熔岩动画。
+由于Minecraft的 `/spreadplayer` 指令在不安全位置（如水上、熔岩）会拒绝执行，脚本接下来直接使用 `/tp` 可能会导致玩家生成在空中或地底。如果是落水，即使 `WAIT_TIME` 较长，也有可能因为水体太深而保持下落状态，这也可能会导致前后截图具有差异。而如果是地底，视角会被方块卡住（这在Ocean类群系尤为严重）。如果你仍然需要随机生成坐标，你需要启用 `enable_y` 且不启用 `random_y`，这样生成的`y`坐标均为可被识别的特殊值而不会用于传送，此时你可以为那些会卡在方块中/漂浮中的传送点手动寻找一个安全的`y`值，并改动 `json` 文件中的 `coords` 项。
 我使用的方法是游戏内截图（F2）与 Mod 截图，但 `pyautogui.hotkey()` 并不能使得这两条指令在机器上严谨的同时发生，正在运作的渲染管线本身也不支持此逻辑，因此实际运行时HR与LR难以保持绝对一致，虽然在静态场景上几乎无影响（比如daytime会有差异），但动态场景（尤其是雨滴效果）则可能会比较明显。这会为退化模型引入一定的随机性，因此相比较于使用下采样算法，采集方法本身与游戏特性会导致我的数据集本身难以完全复现。~~但我认为LR-HR对的随机差异客观上可以增加退化模型构建的复杂性，以提升模型面对复杂动态场景时的鲁棒性。~~
 
 虽然我使用 <https://github.com/UltimateBoomer/Resolution-Control> 作为了第二个截图方法，但我也对这个项目的1.20分支进行了魔改，使其能够在截图后的下一帧，继续进行相应分辨率的截图，从而达到近似“同时获取”的效果，经过测试，这个方案与这个项目的方案（混合原版截图）没有明显差距，详细来说，Minecraft的雨滴下落依旧不能在两张图像对应，这是一个根本性的问题。

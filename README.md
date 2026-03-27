@@ -22,16 +22,16 @@ When performing chunk preloading or automated screenshots, Minecraft must remain
 
 ### Project Structure
 
-- `generate.py`: Generates `coords_list_x_x_x.json` from `biomes_x_x_x.csv` or `coords_x_x_x.csv`.
-- `maprun.py`: Preloads chunks in the game via teleportation according to `coords_list_x_x_x.json`.
-- `capture.py`: Executes weather/time changes, teleportation, and triggers screenshot hotkeys based on `coords_list_x_x_x.json`, logging the capture process.
+- `generate.py`: Generates `capture_list_x_x_x.json` from `biomes_x_x_x.csv` or `coords_x_x_x.csv`.
+- `maprun.py`: Preloads chunks in the game via teleportation according to `capture_list_x_x_x.json`.
+- `capture.py`: Executes weather/time changes, teleportation, and triggers screenshot hotkeys based on `capture_list_x_x_x.json`, logging the capture process.
 - `utils/config_loader.py`: YAML configuration loader.
 - `utils/window_resize.py`: Minecraft window client area resizing based on Win32 API.
 - `configs/generate_x_x_x.yaml`: Generation configuration for version x.x.
 - `configs/capture_x_x_x.yaml`: Capture-stage configuration for version x.x.
 - `data/biomes_x_x_x.csv`: **Manual** Biome coordinate inputs (`biome,x,z`).
 - `data/coords_x_x_x.csv`: **Manual** task inputs (optional).
-- `data/coords_list_x_x_x.json`: Task file **generated** by `generate.py`, used by the maprun/capture scripts.
+- `data/capture_list_x_x_x.json`: Task file **generated** by `generate.py`, used by the maprun/capture scripts.
 
 ## Note
 
@@ -159,11 +159,11 @@ python capture.py --config configs/capture_1_0_0.yaml
 You can override YAML defaults via the command line. Example:
 
 ```bash
-python generate.py --config ./configs/generate_1_0_0.yaml --total-samples 1840 --seed 42 --output-file ./data/coords_list.json
+python generate.py --config ./configs/generate_1_0_0.yaml --total-samples 1840 --seed 42 --output-file ./data/capture_list.json
 python capture.py --config ./configs/capture_1_0_0.yaml --wait-time 2.0 --lr-res 480 270 --input-file ./data/coords_list.json
 ```
 > [!NOTE]
-> `maprun.py` does not have an independent configuration file; you need to manually modify the `INPUT_FILE` in the code to point to the target `coords_list_x_x_x.json`.
+> `maprun.py` does not have an independent configuration file; you need to manually modify the `INPUT_FILE` in the code to point to the target `capture_list_x_x_x.json`.
 > Therefore, if you modify the `output_file` in `generate_x_x_x.yaml`, please synchronously update `maprun.py`.
 
 ### 3. Configuration Instructions
@@ -184,7 +184,8 @@ Some configuration parameters are not directly related to the sampling process b
 #### 3.1 Generation Configuration (`configs/generate_x_x_x.yaml`)
 - `total_samples` (int): Total number of samples, i.e., how many pairs of screenshots to capture.
 - `seed` (int): Map seed, **used only for logging, must be filled manually**.
-- `enable_y` (bool): Whether to output the Y-axis. When enabled, the output will include a `y` field.
+- `enable_y` (bool): Whether to output the Y-axis. When enabled, the output will include a `y` field. This option affects `enable_manual`.
+- `random_y` (bool): Whether to enable random generation of Y-axis values. When enabled, the `/tp` logic is used, requiring manual entry of the desired coordinates; for unspecified coordinates or when disabled, the `/spreadplayer` logic is used. This option does not affect `enable_manual`.
 - `enable_manual` (bool):
     - `true`: Read from `manual_csv_file`.
     - `false`: Auto-generate from `biomes_csv_file`.
@@ -199,7 +200,7 @@ Some configuration parameters are not directly related to the sampling process b
 
 After `generate.py` reads the configuration, the generated JSON's `config` will log:
 
-- `enable_Y`, `enable_manual`, `seed`, `coordinate_offset`, `yaw_range`, `pitch_range`, `time_points`
+- `total_samples`, `enable_y`, `random_y`, `enable_manual`, `seed`, `coordinate_offset`, `yaw_range`, `pitch_range`, `time_points`
 - And retains only one source field depending on the mode:
     - Manual mode: `manual_csv_file`
     - Auto mode: `biomes_csv_file`
@@ -217,7 +218,7 @@ After `generate.py` reads the configuration, the generated JSON's `config` will 
 
 ### 4. Data Format
 
-#### 4.1 Biome Centers `data/biomes_1_0_0.csv`
+#### 4.1 Biome Centers `data/biomes_x_x_x.csv`
 
 The header order is fixed:
 
@@ -226,7 +227,7 @@ biome,x,z
 ```
 *You can use some seed viewers to search for biome coordinates to make writing this file easier.*
 
-#### 4.2 Manual Tasks `data/coords_1_0_0.csv`
+#### 4.2 Manual Tasks `data/coords_x_x_x.csv`
 
 When `enable_y=false`:
 
@@ -269,7 +270,7 @@ If `enable_y=true`, each record will additionally contain a `y` field.
 
 **If you need to replicate this dataset**, please select the corresponding configuration file depending on the version and synchronize the instructed environment configuration. Using version 1.0 as an example:
 ```bash
-# Generate coords_list_1_0_0.json manually from biomes_1_0_0.csv
+# Generate capture_list_1_0_0.json manually from biomes_1_0_0.csv
 python generate.py --config configs/generate_1_0_0.yaml
 # (Optional, requires Minecraft to be the main window) Preload chunks
 python maprun.py
@@ -286,6 +287,7 @@ Screenshots will be saved in the screenshots folder of your Minecraft directory.
 ## About Dataset Replication
 
 Unlike specialized rendering engines, due to the dynamic nature of the game environment, it is difficult to control variables such as Minecraft's frametime. This may cause discrepancies when attempting to reproduce events like Minecraft's animation playback or frametime-based calculations (some shaderpacks): e.g., cloud movement, raindrop effects, and lava animations.
+ Since the Minecraft `/spreadplayers` command refuses to execute in unsafe locations (such as on water or lava), the script's subsequent use of `/tp` may cause players to spawn in mid-air or underground. In cases of falling into water, even with a long `WAIT_TIME`, players may remain in a falling state due to deep water, which can lead to inconsistencies between screenshots. If spawned underground, the camera view will be obstructed by blocks (a problem particularly severe in Ocean biomes). If you still require random coordinates, you should enable `enable_y` and disable `random_y`. This ensures the generated Y-coordinates are recognizable placeholder values rather than being used for teleportation. You can then manually find a safe Y-value for those stuck/floating points and update the `coords` field in the `json` file.
 The method I am using combines in-game screenshots (F2) and Mod screenshots, but `pyautogui.hotkey()` cannot make these two commands function strictly simultaneously on the machine. The operational rendering pipeline itself also does not support this logic, so it is hard to maintain absolute consistency between HR and LR during actual runtime. Although this has almost no impact on static scenes (such as daytime variations), it can be quite obvious in dynamic scenes (especially raindrop effects). This introduces a certain degree of randomness for degradation models; thus, compared to using downsampling algorithms, the capture methodology itself and game characteristics make my dataset difficult to perfectly reproduce. ~~However, I believe that the random discrepancies between LR-HR pairs objectively increase the complexity of degradation model construction, enhancing the model's robustness in complex dynamic scenarios.~~
 
 Although I used <https://github.com/UltimateBoomer/Resolution-Control> as a secondary screenshot method, I also locally modified its 1.20 branch to allow it to take a screenshot at the corresponding resolution in the frame immediately after capturing, achieving an approximate "simultaneous acquisition" effect. Tests show that this approach has no significant gap compared with this project's original solution (mixed vanilla screenshots). In detail, the falling of raindrops in Minecraft still cannot be precisely matched between the two images, which is a fundamental issue.
