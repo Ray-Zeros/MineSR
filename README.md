@@ -184,7 +184,8 @@ Some configuration parameters are not directly related to the sampling process b
 #### 3.1 Generation Configuration (`configs/generate_x_x_x.yaml`)
 - `total_samples` (int): Total number of samples, i.e., how many pairs of screenshots to capture.
 - `seed` (int): Map seed, **used only for logging, must be filled manually**.
-- `enable_y` (bool): Whether to output the Y-axis. When enabled, the output will include a `y` field.
+- `enable_y` (bool): Whether to output the Y-axis. When enabled, the output will include a `y` field. This option affects `enable_manual`.
+- `random_y` (bool): Whether to enable random generation of Y-axis values. When enabled, the `/tp` logic is used, requiring manual entry of the desired coordinates; for unspecified coordinates or when disabled, the `/spreadplayer` logic is used. This option does not affect `enable_manual`.
 - `enable_manual` (bool):
     - `true`: Read from `manual_csv_file`.
     - `false`: Auto-generate from `biomes_csv_file`.
@@ -199,7 +200,7 @@ Some configuration parameters are not directly related to the sampling process b
 
 After `generate.py` reads the configuration, the generated JSON's `config` will log:
 
-- `enable_Y`, `enable_manual`, `seed`, `coordinate_offset`, `yaw_range`, `pitch_range`, `time_points`
+- `total_samples`, `enable_y`, `random_y`, `enable_manual`, `seed`, `coordinate_offset`, `yaw_range`, `pitch_range`, `time_points`
 - And retains only one source field depending on the mode:
     - Manual mode: `manual_csv_file`
     - Auto mode: `biomes_csv_file`
@@ -217,7 +218,7 @@ After `generate.py` reads the configuration, the generated JSON's `config` will 
 
 ### 4. Data Format
 
-#### 4.1 Biome Centers `data/biomes_1_0_0.csv`
+#### 4.1 Biome Centers `data/biomes_x_x_x.csv`
 
 The header order is fixed:
 
@@ -226,7 +227,7 @@ biome,x,z
 ```
 *You can use some seed viewers to search for biome coordinates to make writing this file easier.*
 
-#### 4.2 Manual Tasks `data/coords_1_0_0.csv`
+#### 4.2 Manual Tasks `data/coords_x_x_x.csv`
 
 When `enable_y=false`:
 
@@ -286,6 +287,7 @@ Screenshots will be saved in the screenshots folder of your Minecraft directory.
 ## About Dataset Replication
 
 Unlike specialized rendering engines, due to the dynamic nature of the game environment, it is difficult to control variables such as Minecraft's frametime. This may cause discrepancies when attempting to reproduce events like Minecraft's animation playback or frametime-based calculations (some shaderpacks): e.g., cloud movement, raindrop effects, and lava animations.
+ Since the Minecraft `/spreadplayers` command refuses to execute in unsafe locations (such as on water or lava), the script's subsequent use of `/tp` may cause players to spawn in mid-air or underground. In cases of falling into water, even with a long `WAIT_TIME`, players may remain in a falling state due to deep water, which can lead to inconsistencies between screenshots. If spawned underground, the camera view will be obstructed by blocks (a problem particularly severe in Ocean biomes). If you still require random coordinates, you should enable `enable_y` and disable `random_y`. This ensures the generated Y-coordinates are recognizable placeholder values rather than being used for teleportation. You can then manually find a safe Y-value for those stuck/floating points and update the `coords` field in the `json` file.
 The method I am using combines in-game screenshots (F2) and Mod screenshots, but `pyautogui.hotkey()` cannot make these two commands function strictly simultaneously on the machine. The operational rendering pipeline itself also does not support this logic, so it is hard to maintain absolute consistency between HR and LR during actual runtime. Although this has almost no impact on static scenes (such as daytime variations), it can be quite obvious in dynamic scenes (especially raindrop effects). This introduces a certain degree of randomness for degradation models; thus, compared to using downsampling algorithms, the capture methodology itself and game characteristics make my dataset difficult to perfectly reproduce. ~~However, I believe that the random discrepancies between LR-HR pairs objectively increase the complexity of degradation model construction, enhancing the model's robustness in complex dynamic scenarios.~~
 
 Although I used <https://github.com/UltimateBoomer/Resolution-Control> as a secondary screenshot method, I also locally modified its 1.20 branch to allow it to take a screenshot at the corresponding resolution in the frame immediately after capturing, achieving an approximate "simultaneous acquisition" effect. Tests show that this approach has no significant gap compared with this project's original solution (mixed vanilla screenshots). In detail, the falling of raindrops in Minecraft still cannot be precisely matched between the two images, which is a fundamental issue.
