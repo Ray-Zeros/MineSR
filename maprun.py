@@ -13,7 +13,7 @@ import time
 ###########################################
 
 # 需要手动配置的参数
-INPUT_FILE = "./data/coords_list_1_0_0.json"
+INPUT_FILE = "./data/capture_list_1_0_0.json"
 WAIT_TIME = 1.0
 
 def send_cmd(cmd):
