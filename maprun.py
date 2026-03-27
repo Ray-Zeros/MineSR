@@ -13,8 +13,8 @@ import time
 ###########################################
 
 # 需要手动配置的参数
-INPUT_FILE = "./data/coords_list_1_0_0.json"
-WAIT_TIME = 3.0
+INPUT_FILE = "./data/capture_list_1_0_0.json"
+WAIT_TIME = 1.0
 
 def send_cmd(cmd):
     pyautogui.press('t')
@@ -31,7 +31,7 @@ def run_map():
     
     config = data.get("config", {})
     coords = data.get("coords", [])
-    enable_y = bool(config.get("enable_Y", False))
+    enable_y = bool(config.get("enable_y", False))
 
     print("The map preloading script will start in 5 seconds. Please click into the Minecraft window and ensure the chat bar is closed.")
     time.sleep(5)
@@ -40,8 +40,20 @@ def run_map():
         biome_name = entry.get("biome", "Unknown")
         print(f"Processing data id {entry['id']}, current biome: {biome_name}...")
 
-        if enable_y:
-            send_cmd(f"/tp @s {entry['x']} {entry['y']} {entry['z']} {entry['yaw']} {entry['pitch']}")
+        y_value = entry.get("y", None)
+        use_exact_y = False
+        parsed_y = None
+
+        if enable_y and y_value is not None:
+            try:
+                parsed_y = int(y_value)
+                use_exact_y = True
+            except (TypeError, ValueError):
+                print(f"Invalid y for id {entry.get('id', 'Unknown')}, y={y_value!r}. This record is skipped.")
+                continue
+
+        if use_exact_y:
+            send_cmd(f"/tp @s {entry['x']} {parsed_y} {entry['z']} {entry['yaw']} {entry['pitch']}")
         else:
             send_cmd(f"/spreadplayers {entry['x']} {entry['z']} 0 1 false @s")
             send_cmd(f"/tp @s {entry['x']} ~ {entry['z']} {entry['yaw']} {entry['pitch']}")
