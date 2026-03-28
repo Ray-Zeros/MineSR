@@ -27,7 +27,6 @@ MineSR 的脚本化流程核心包含三步：
 - `utils/config_loader.py`：YAML 配置加载器。
 - `utils/window_resize.py`：基于 Win32 API 的 Minecraft 窗口客户区尺寸调整。
 - `utils/logger_utils.py`：公共 logger。
-- `utils/check_spread.py`：从 Minecraft latest.log 检查 `/spreadplayer` 是否异常。
 - `configs/generate_x_x_x.yaml`：x.x 版本的生成配置。
 - `configs/capture_x_x_x.yaml`：x.x 版本的采集阶段配置。
 - `data/biomes_x_x_x.csv`：**手动**编写的群系坐标输入（`biome,x,z`）。
@@ -188,7 +187,7 @@ python capture.py --config ./configs/capture_1_0_0.yaml --wait-time 2.0 --lr-res
 - `total_samples`（int）：总样本数，即采样多少对截图。
 - `seed`（int）：地图种子，**仅做日志作用，需要手动填写**。
 - `enable_y`（bool）：是否输出 Y 轴。启用时输出将包含 `y` 字段。此选项影响 `enable_manual`。
-- `random_y`（bool）：是否启用随机生成 Y 轴数值。启用时使用 `/tp` 逻辑，需要为所需坐标手动填写，未填写部分/关闭时使用 `/spreadplayer` 逻辑。此选项不影响 `enable_manual`。
+- `random_y`（bool）：是否启用随机生成 Y 轴数值。启用时使用 `/tp` 逻辑，需要为所需坐标手动填写，未填写部分/关闭时使用 `/execute positioned ... over ocean_floor ...` 逻辑。此选项不影响 `enable_manual`。
 - `enable_manual`（bool）：
 	- `true`：从 `manual_csv_file` 读取。
 	- `false`：从 `biomes_csv_file` 自动生成。
@@ -221,8 +220,6 @@ python capture.py --config ./configs/capture_1_0_0.yaml --wait-time 2.0 --lr-res
 
 - `INPUT_FILE`：输入 `capture_list_x_x_x.json` 任务文件
 - `WAIT_TIME`：加载区块等待时间
-- `CHECK_SPREAD`：检查 `/spreadplayers` 指令是否异常的开关，开启时读取 `MC_LOG_PATH` 监听游戏日志
-- `MC_LOG_PATH`：Minecraft 的 `latest.log` 文件地址
 - `LOG_SUFFIX`：日志文件输出位置与文件后缀
 
 ---
@@ -298,7 +295,8 @@ python capture.py --config configs/capture_1_0_0.yaml
 ## 关于数据集复现
 
 不同于专门的渲染引擎，由于游戏环境的动态特性，我们难以控制Minecraft的frametime等变量，这可能会使得Minecraft的动画播放、基于frametime的计算（一些shaderpacks）等事件，在尝试复现时存在差异：例如云层飘动、雨滴效果、熔岩动画。
-由于Minecraft的 `/spreadplayer` 指令在不安全位置（如水上、熔岩）会拒绝执行，脚本接下来直接使用 `/tp` 可能会导致玩家生成在空中或地底。如果是落水，即使 `WAIT_TIME` 较长，也有可能因为水体太深而保持下落状态，这也可能会导致前后截图具有差异。而如果是地底，视角会被方块卡住（这在Ocean类群系尤为严重）。如果你仍然需要随机生成坐标，你需要启用 `enable_y` 且不启用 `random_y`，这样生成的`y`坐标均为可被识别的特殊值而不会用于传送，此时你可以为那些会卡在方块中/漂浮中的传送点手动寻找一个安全的`y`值，并改动 `json` 文件中的 `coords` 项。
+使用 `/execute positioned x 0 z positioned over ocean_floor run tp @s ~ ~ ~` 指令可以替代 `/spreadplayers` 以传送玩家至实体方块上，避免后者拒绝操作导致的一系列问题。
+`random_y`的作用现在变为允许随机生成`x,z`坐标时，手动控制一部分坐标的`y`轴。你需要启用 `enable_y` 且禁用 `random_y`，这样生成的`y`坐标均为`null`，配合`/execute`指令传送至最高的实体方块上，此时你可以为那些~~原本会卡在方块中/漂浮中的传送点/~~洞穴或其他地表以外的位置，手动寻找一个安全的`y`值，并改动 `json` 文件中的 `coords` 项。
 我使用的方法是游戏内截图（F2）与 Mod 截图，但 `pyautogui.hotkey()` 并不能使得这两条指令在机器上严谨的同时发生，正在运作的渲染管线本身也不支持此逻辑，因此实际运行时HR与LR难以保持绝对一致，虽然在静态场景上几乎无影响（比如daytime会有差异），但动态场景（尤其是雨滴效果）则可能会比较明显。这会为退化模型引入一定的随机性，因此相比较于使用下采样算法，采集方法本身与游戏特性会导致我的数据集本身难以完全复现。~~但我认为LR-HR对的随机差异客观上可以增加退化模型构建的复杂性，以提升模型面对复杂动态场景时的鲁棒性。~~
 
 虽然我使用 <https://github.com/UltimateBoomer/Resolution-Control> 作为了第二个截图方法，但我也对这个项目的1.20分支进行了魔改，使其能够在截图后的下一帧，继续进行相应分辨率的截图，从而达到近似“同时获取”的效果，经过测试，这个方案与这个项目的方案（混合原版截图）没有明显差距，详细来说，Minecraft的雨滴下落依旧不能在两张图像对应，这是一个根本性的问题。

@@ -28,7 +28,6 @@ When performing chunk preloading or automated screenshots, Minecraft must remain
 - `utils/config_loader.py`: YAML configuration loader.
 - `utils/window_resize.py`: Minecraft window client area resizing based on Win32 API.
 - `utils/logger_utils.py`: public logger.
-- `utils/check_spread.py`: Verify /spreadplayers execution via Minecraft latest.log.
 - `configs/generate_x_x_x.yaml`: Generation configuration for version x.x.
 - `configs/capture_x_x_x.yaml`: Capture-stage configuration for version x.x.
 - `data/biomes_x_x_x.csv`: **Manual** Biome coordinate inputs (`biome,x,z`).
@@ -220,8 +219,6 @@ After `generate.py` reads the configuration, the generated JSON's `config` will 
 
 - `INPUT_FILE`: The input task file (e.g., `capture_list_x_x_x.json`).
 - `WAIT_TIME`: Wait time for chunk loading.
-- `CHECK_SPREAD`: A toggle to detect `/spreadplayers` command errors. When enabled, it monitors game logs via `MC_LOG_PATH`.
-- `MC_LOG_PATH`: The file path to the Minecraft `latest.log`.
 - `LOG_SUFFIX`: The output directory and file extension for the log files.
 
 ---

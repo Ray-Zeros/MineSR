@@ -96,8 +96,11 @@ def run_capture(cfg):
             send_cmd(f"/tp @s {entry['x']} {parsed_y} {entry['z']} {entry['yaw']} {entry['pitch']}")
         else:
             # Fallback path: use surface placement when y is disabled or y is null.
-            send_cmd(f"/spreadplayers {entry['x']} {entry['z']} 0 1 false @s")
-            send_cmd(f"/tp @s {entry['x']} ~ {entry['z']} {entry['yaw']} {entry['pitch']}")
+            send_cmd(f"/tp @s {entry['x']} ~ {entry['z']} {entry['yaw']} {entry['pitch']}") # load chunk
+            send_cmd(f"/execute positioned {entry['x']} 0 {entry['z']} positioned over ocean_floor run tp @s ~ ~ ~ {entry['yaw']} {entry['pitch']}")
+
+            # send_cmd(f"/spreadplayers {entry['x']} {entry['z']} 0 1 false @s")
+            # send_cmd(f"/tp @s {entry['x']} ~ {entry['z']} {entry['yaw']} {entry['pitch']}")
         
         send_cmd(f"/time set {entry['time']}")
 
