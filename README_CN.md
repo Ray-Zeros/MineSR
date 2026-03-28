@@ -180,6 +180,7 @@ python capture.py --config ./configs/capture_1_0_0.yaml --wait-time 2.0 --lr-res
 > 1. 在 Minecraft 中创建新世界，使用 `/seed` 指令查询并将种子填入 `generate_x_x_x.yaml` 作为记录。
 > 2. 在 Resolution Control 模组中设置截图快捷键，并将该键位写入 `capture_x_x_x.yaml` 的 `mod_key`。
 >    在模组菜单的 Screenshot 页面中，设置截图分辨率（高分辨率），记为 `hr_res` 并写入 `capture_x_x_x.yaml`。
+> 3. 请确保 Minecraft 文件夹中有screenshots文件夹，否则 Resolution Control 模组截图会导致崩溃。
 
 
 #### 3.1 生成配置（`configs/generate_x_x_x.yaml`）

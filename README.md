@@ -180,13 +180,13 @@ Some configuration parameters are not directly related to the sampling process b
 > 1. Create a new world in Minecraft, query it using the `/seed` command, and log the seed into `generate_x_x_x.yaml`.
 > 2. Set the screenshot hotkey in the Resolution Control mod, and write that key into `mod_key` in `capture_x_x_x.yaml`.
 >    In the mod menu's Screenshot page, set the screenshot resolution (high resolution), note it as `hr_res`, and write it into `capture_x_x_x.yaml`.
-
+> 3. Please make sure the Minecraft folder contains a folder named “screenshots”; otherwise, the screenshot feature of the Resolution Control mod will cause the game to crash.
 
 #### 3.1 Generation Configuration (`configs/generate_x_x_x.yaml`)
 - `total_samples` (int): Total number of samples, i.e., how many pairs of screenshots to capture.
 - `seed` (int): Map seed, **used only for logging, must be filled manually**.
 - `enable_y` (bool): Whether to output the Y-axis. When enabled, the output will include a `y` field. This option affects `enable_manual`.
-- **`random_y` (bool)**: Toggles random Y-axis values. When enabled, it uses `/tp` logic and requires manual coordinates. If disabled or left blank, it falls back to `/execute positioned ... over ocean_floor ...` logic. This option does not affect `enable_manual`.
+- `random_y` (bool): Toggles random Y-axis values. When enabled, it uses `/tp` logic and requires manual coordinates. If disabled or left blank, it falls back to `/execute positioned ... over ocean_floor ...` logic. This option does not affect `enable_manual`.
 - `enable_manual` (bool):
     - `true`: Read from `manual_csv_file`.
     - `false`: Auto-generate from `biomes_csv_file`.
@@ -295,7 +295,7 @@ Screenshots will be saved in the screenshots folder of your Minecraft directory.
 
 Unlike specialized rendering engines, due to the dynamic nature of the game environment, it is difficult to control variables such as Minecraft's frametime. This may cause discrepancies when attempting to reproduce events like Minecraft's animation playback or frametime-based calculations (some shaderpacks): e.g., cloud movement, raindrop effects, and lava animations.
 The command `/execute positioned x 0 z positioned over ocean_floor run tp @s ~ ~ ~` can be used as an alternative to `/spreadplayers`. It ensures players are teleported onto a solid block, avoiding issues caused by the latter's failure to execute under certain conditions.
-The role of `random_y` has been updated: it now allows for manual Y-axis control over specific coordinates while X and Z are randomized. You should enable `enable_y` and disable `random_y`. Thisensures the generated Y-coordinates are recognizable placeholder values rather than being used forteleportation. You can then manually find a safe Y-value for those ~~stuck/floating points~~caves or other positions outside of the ground and updatethe `coords` field in the `json` file.
+The role of `random_y` has been updated: it now allows for manual Y-axis control over specific coordinates while X and Z are randomized. You should enable `enable_y` and disable `random_y`. This ensures the generated Y-coordinates are recognizable placeholder values rather than being used for teleportation. You can then manually find a safe Y-value for those ~~stuck/floating points~~ caves or other positions outside of the ground and update the `coords` field in the `json` file.
 The method I am using combines in-game screenshots (F2) and Mod screenshots, but `pyautogui.hotkey()` cannot make these two commands function strictly simultaneously on the machine. The operational rendering pipeline itself also does not support this logic, so it is hard to maintain absolute consistency between HR and LR during actual runtime. Although this has almost no impact on static scenes (such as daytime variations), it can be quite obvious in dynamic scenes (especially raindrop effects). This introduces a certain degree of randomness for degradation models; thus, compared to using downsampling algorithms, the capture methodology itself and game characteristics make my dataset difficult to perfectly reproduce. ~~However, I believe that the random discrepancies between LR-HR pairs objectively increase the complexity of degradation model construction, enhancing the model's robustness in complex dynamic scenarios.~~
 
 Although I used <https://github.com/UltimateBoomer/Resolution-Control> as a secondary screenshot method, I also locally modified its 1.20 branch to allow it to take a screenshot at the corresponding resolution in the frame immediately after capturing, achieving an approximate "simultaneous acquisition" effect. Tests show that this approach has no significant gap compared with this project's original solution (mixed vanilla screenshots). In detail, the falling of raindrops in Minecraft still cannot be precisely matched between the two images, which is a fundamental issue.
