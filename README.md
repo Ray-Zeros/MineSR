@@ -1,13 +1,23 @@
 ﻿# MineSR: Minecraft Super-Resolution Dataset
 
-> The dataset is currently in production. A link will be uploaded upon completion.
-
+[![DOI](https://img.shields.io/badge/DOI-10.5281/zenodo.19294458-blue.svg)](https://doi.org/10.5281/zenodo.19294458) [![Hugging Face Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-orange)](https://huggingface.co/datasets/RayZeros/MineSR) [![Baidu Netdisk](https://img.shields.io/badge/百度网盘-Baidu%20Netdisk-0066FF?style=flat-square&logo=icloud&logoColor=white)](https://pan.baidu.com/s/13VnUipBLR-k70_vqG21ExA?pwd=mcsr )
 <p align="center">
   <a href="README.md">English</a> | <a href="README_CN.md">简体中文</a>
 </p>
 
 ## Overview
-This repository provides automated scripts for creating the **MineSR Dataset**. The MineSR dataset aims to provide paired high-resolution (1080P, acquired via mod) and low-resolution (270P, acquired via vanilla screenshots) images of Minecraft to support the training of super-resolution models.
+<table style="width: 100%; border-collapse: collapse; border: none;">
+  <tr style="border: none;">
+    <td style="width: 50%; border: none;">
+      <img src="assets/banner_HR.png" width="100%" alt="HR/0719.png">
+    </td>
+    <td style="width: 50%; border: none;">
+      <img src="assets/banner_LR.png" width="100%" alt="LR/0719.png">
+    </td>
+  </tr>
+</table>
+
+This repository provides automated scripts for creating the **MineSR Dataset**. The MineSR dataset aims to provide paired high-resolution (1080P, acquired via mod) and low-resolution (270P, acquired via vanilla screenshots) images of Minecraft to support the training of 4x super-resolution models.
 
 To ensure consistent degradation between training samples, we use a single rendering-scale strategy: using the Resolution Control mod to modify Buffer Size and obtain HR (high-resolution) images.
 
@@ -48,7 +58,7 @@ Feel free to email me if you have any questions. `rayzeros@e.gzhu.edu.cn`
 
 | Version | Version Info | Image Count | Status |
 |:-----:|-------|:-----:|:-----:|
-| 1.0 | All biomes on the Overworld **Surface** (46) | 1840 | In Progress🛠️ |
+| 1.0 | All biomes on the Overworld **Surface** (46) | 1840 | Finished✅ |
 | 1.1 | Add 3 Overworld **Underground** biomes * 100 pairs, Overworld Features | / | Planned📅 |
 | 1.2 | Add Rain/Snow scenarios for all Overworld **Surface** biomes | / | Planned📅 |
 | 2.0 | Add 5 Nether biomes * 50, Nether Features | / | Planned📅 |
@@ -300,3 +310,28 @@ The method I am using combines in-game screenshots (F2) and Mod screenshots, but
 
 Although I used <https://github.com/UltimateBoomer/Resolution-Control> as a secondary screenshot method, I also locally modified its 1.20 branch to allow it to take a screenshot at the corresponding resolution in the frame immediately after capturing, achieving an approximate "simultaneous acquisition" effect. Tests show that this approach has no significant gap compared with this project's original solution (mixed vanilla screenshots). In detail, the falling of raindrops in Minecraft still cannot be precisely matched between the two images, which is a fundamental issue.
 However, this modified version can still make your screenshots more elegant, which might suit your needs or coincide with your intentions. You can access it here: <https://github.com/Ray-Zeros/Resolution-Control>
+
+## Citation
+If you use this dataset in your research, please cite it as follows:
+```bibtex
+@dataset{MineSR,
+  author       = {Chen, Ruixi},
+  title        = {MineSR: Minecraft Super-Resolution Dataset},
+  version      = {1.0},
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.19294458},
+  url          = {https://doi.org/10.5281/zenodo.19294458}
+}
+```
+**APA Style:**
+Chen, Ruixi (2026). MineSR: Minecraft Super-Resolution Dataset (1.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.19294458
+
+### Version & DOI
+
+> **Note**: For strict scientific reproducibility, you may also cite a specific version. Please refer to the section below.
+
+| Version | Date       | Zenodo DOI                | Changes            |
+|-----|:-----:|-----|:-----:|
+| 1.0    | 2026-03-28 | [10.5281/zenodo.19294459](...)   | Initial release    |
+| Concept    | / | [10.5281/zenodo.19294458](...)   | / |

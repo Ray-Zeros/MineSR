@@ -1,0 +1,7 @@
+input_file: "./data/capture_list_1_0_0.json"
+log_suffix: "./logs/capture_1_0_0"
+lr_res: [480, 270]
+hr_res: [1920, 1080]
+wait_time: 3.5
+mod_key: "]"
+mc_key: "f2"

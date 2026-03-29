@@ -1,0 +1,11 @@
+total_samples: 1840
+seed: 5277617577473417202
+enable_y: true
+random_y: false
+enable_manual: false
+biomes_csv_file: "./data/biomes_1_0_0.csv"
+coordinate_offset: 100
+yaw_range: [-180, 180]
+pitch_range: [-30, 45]
+time_points: "1000,6000,13000,18000"
+output_file: "./data/capture_list_1_0_0.json"

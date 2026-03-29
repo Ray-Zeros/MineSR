@@ -1,0 +1,1841 @@
+index,biome,split
+0001,plain,train
+0002,plain,test
+0003,plain,train
+0004,plain,train
+0005,plain,train
+0006,plain,val
+0007,plain,val
+0008,plain,test
+0009,plain,val
+0010,plain,train
+0011,plain,train
+0012,plain,train
+0013,plain,train
+0014,plain,train
+0015,plain,val
+0016,plain,test
+0017,plain,train
+0018,plain,test
+0019,plain,train
+0020,plain,train
+0021,plain,train
+0022,plain,train
+0023,plain,train
+0024,plain,train
+0025,plain,train
+0026,plain,train
+0027,plain,train
+0028,plain,train
+0029,plain,train
+0030,plain,train
+0031,plain,train
+0032,plain,train
+0033,plain,train
+0034,plain,train
+0035,plain,train
+0036,plain,train
+0037,plain,train
+0038,plain,train
+0039,plain,train
+0040,plain,train
+0041,snow plain,train
+0042,snow plain,train
+0043,snow plain,test
+0044,snow plain,train
+0045,snow plain,train
+0046,snow plain,train
+0047,snow plain,train
+0048,snow plain,val
+0049,snow plain,train
+0050,snow plain,train
+0051,snow plain,train
+0052,snow plain,train
+0053,snow plain,train
+0054,snow plain,train
+0055,snow plain,train
+0056,snow plain,train
+0057,snow plain,test
+0058,snow plain,train
+0059,snow plain,train
+0060,snow plain,train
+0061,snow plain,train
+0062,snow plain,train
+0063,snow plain,test
+0064,snow plain,train
+0065,snow plain,val
+0066,snow plain,train
+0067,snow plain,train
+0068,snow plain,train
+0069,snow plain,train
+0070,snow plain,val
+0071,snow plain,train
+0072,snow plain,train
+0073,snow plain,train
+0074,snow plain,train
+0075,snow plain,val
+0076,snow plain,train
+0077,snow plain,train
+0078,snow plain,train
+0079,snow plain,train
+0080,snow plain,test
+0081,mushroom fields,train
+0082,mushroom fields,train
+0083,mushroom fields,train
+0084,mushroom fields,train
+0085,mushroom fields,train
+0086,mushroom fields,train
+0087,mushroom fields,train
+0088,mushroom fields,train
+0089,mushroom fields,train
+0090,mushroom fields,train
+0091,mushroom fields,test
+0092,mushroom fields,train
+0093,mushroom fields,train
+0094,mushroom fields,train
+0095,mushroom fields,val
+0096,mushroom fields,test
+0097,mushroom fields,train
+0098,mushroom fields,val
+0099,mushroom fields,train
+0100,mushroom fields,train
+0101,mushroom fields,val
+0102,mushroom fields,train
+0103,mushroom fields,train
+0104,mushroom fields,train
+0105,mushroom fields,val
+0106,mushroom fields,train
+0107,mushroom fields,train
+0108,mushroom fields,train
+0109,mushroom fields,train
+0110,mushroom fields,test
+0111,mushroom fields,train
+0112,mushroom fields,train
+0113,mushroom fields,train
+0114,mushroom fields,train
+0115,mushroom fields,test
+0116,mushroom fields,train
+0117,mushroom fields,train
+0118,mushroom fields,train
+0119,mushroom fields,train
+0120,mushroom fields,train
+0121,savanna,train
+0122,savanna,train
+0123,savanna,train
+0124,savanna,test
+0125,savanna,val
+0126,savanna,test
+0127,savanna,train
+0128,savanna,test
+0129,savanna,train
+0130,savanna,test
+0131,savanna,val
+0132,savanna,train
+0133,savanna,train
+0134,savanna,train
+0135,savanna,train
+0136,savanna,train
+0137,savanna,train
+0138,savanna,train
+0139,savanna,train
+0140,savanna,train
+0141,savanna,train
+0142,savanna,train
+0143,savanna,train
+0144,savanna,train
+0145,savanna,val
+0146,savanna,train
+0147,savanna,train
+0148,savanna,val
+0149,savanna,train
+0150,savanna,train
+0151,savanna,train
+0152,savanna,train
+0153,savanna,train
+0154,savanna,train
+0155,savanna,train
+0156,savanna,train
+0157,savanna,train
+0158,savanna,train
+0159,savanna,train
+0160,savanna,train
+0161,ice spikes,test
+0162,ice spikes,val
+0163,ice spikes,train
+0164,ice spikes,train
+0165,ice spikes,train
+0166,ice spikes,train
+0167,ice spikes,train
+0168,ice spikes,val
+0169,ice spikes,train
+0170,ice spikes,train
+0171,ice spikes,test
+0172,ice spikes,train
+0173,ice spikes,train
+0174,ice spikes,train
+0175,ice spikes,train
+0176,ice spikes,train
+0177,ice spikes,train
+0178,ice spikes,train
+0179,ice spikes,train
+0180,ice spikes,train
+0181,ice spikes,val
+0182,ice spikes,train
+0183,ice spikes,train
+0184,ice spikes,train
+0185,ice spikes,train
+0186,ice spikes,train
+0187,ice spikes,train
+0188,ice spikes,train
+0189,ice spikes,train
+0190,ice spikes,train
+0191,ice spikes,train
+0192,ice spikes,val
+0193,ice spikes,train
+0194,ice spikes,test
+0195,ice spikes,test
+0196,ice spikes,train
+0197,ice spikes,train
+0198,ice spikes,train
+0199,ice spikes,train
+0200,ice spikes,train
+0201,forest,train
+0202,forest,val
+0203,forest,train
+0204,forest,train
+0205,forest,test
+0206,forest,train
+0207,forest,train
+0208,forest,test
+0209,forest,train
+0210,forest,train
+0211,forest,train
+0212,forest,train
+0213,forest,train
+0214,forest,train
+0215,forest,test
+0216,forest,test
+0217,forest,train
+0218,forest,train
+0219,forest,train
+0220,forest,train
+0221,forest,train
+0222,forest,val
+0223,forest,train
+0224,forest,train
+0225,forest,train
+0226,forest,train
+0227,forest,train
+0228,forest,train
+0229,forest,train
+0230,forest,train
+0231,forest,train
+0232,forest,train
+0233,forest,train
+0234,forest,val
+0235,forest,train
+0236,forest,train
+0237,forest,train
+0238,forest,val
+0239,forest,train
+0240,forest,train
+0241,taiga,train
+0242,taiga,train
+0243,taiga,train
+0244,taiga,test
+0245,taiga,train
+0246,taiga,train
+0247,taiga,test
+0248,taiga,train
+0249,taiga,train
+0250,taiga,train
+0251,taiga,train
+0252,taiga,train
+0253,taiga,val
+0254,taiga,train
+0255,taiga,train
+0256,taiga,val
+0257,taiga,train
+0258,taiga,train
+0259,taiga,train
+0260,taiga,train
+0261,taiga,train
+0262,taiga,test
+0263,taiga,train
+0264,taiga,train
+0265,taiga,train
+0266,taiga,test
+0267,taiga,train
+0268,taiga,train
+0269,taiga,train
+0270,taiga,train
+0271,taiga,train
+0272,taiga,train
+0273,taiga,train
+0274,taiga,val
+0275,taiga,train
+0276,taiga,train
+0277,taiga,train
+0278,taiga,train
+0279,taiga,train
+0280,taiga,val
+0281,jungle,train
+0282,jungle,train
+0283,jungle,train
+0284,jungle,val
+0285,jungle,train
+0286,jungle,train
+0287,jungle,train
+0288,jungle,train
+0289,jungle,train
+0290,jungle,test
+0291,jungle,train
+0292,jungle,train
+0293,jungle,test
+0294,jungle,val
+0295,jungle,train
+0296,jungle,train
+0297,jungle,train
+0298,jungle,train
+0299,jungle,val
+0300,jungle,train
+0301,jungle,train
+0302,jungle,train
+0303,jungle,train
+0304,jungle,train
+0305,jungle,train
+0306,jungle,train
+0307,jungle,train
+0308,jungle,train
+0309,jungle,train
+0310,jungle,train
+0311,jungle,train
+0312,jungle,test
+0313,jungle,train
+0314,jungle,val
+0315,jungle,train
+0316,jungle,test
+0317,jungle,train
+0318,jungle,train
+0319,jungle,train
+0320,jungle,train
+0321,sparse jungle,train
+0322,sparse jungle,train
+0323,sparse jungle,train
+0324,sparse jungle,train
+0325,sparse jungle,train
+0326,sparse jungle,train
+0327,sparse jungle,train
+0328,sparse jungle,train
+0329,sparse jungle,val
+0330,sparse jungle,train
+0331,sparse jungle,train
+0332,sparse jungle,train
+0333,sparse jungle,train
+0334,sparse jungle,train
+0335,sparse jungle,train
+0336,sparse jungle,test
+0337,sparse jungle,test
+0338,sparse jungle,train
+0339,sparse jungle,train
+0340,sparse jungle,val
+0341,sparse jungle,test
+0342,sparse jungle,train
+0343,sparse jungle,train
+0344,sparse jungle,train
+0345,sparse jungle,train
+0346,sparse jungle,test
+0347,sparse jungle,train
+0348,sparse jungle,train
+0349,sparse jungle,train
+0350,sparse jungle,val
+0351,sparse jungle,train
+0352,sparse jungle,train
+0353,sparse jungle,train
+0354,sparse jungle,train
+0355,sparse jungle,train
+0356,sparse jungle,train
+0357,sparse jungle,train
+0358,sparse jungle,train
+0359,sparse jungle,train
+0360,sparse jungle,val
+0361,Birch Forest,train
+0362,Birch Forest,train
+0363,Birch Forest,train
+0364,Birch Forest,train
+0365,Birch Forest,train
+0366,Birch Forest,train
+0367,Birch Forest,test
+0368,Birch Forest,test
+0369,Birch Forest,train
+0370,Birch Forest,test
+0371,Birch Forest,train
+0372,Birch Forest,train
+0373,Birch Forest,train
+0374,Birch Forest,val
+0375,Birch Forest,train
+0376,Birch Forest,train
+0377,Birch Forest,train
+0378,Birch Forest,val
+0379,Birch Forest,val
+0380,Birch Forest,train
+0381,Birch Forest,train
+0382,Birch Forest,val
+0383,Birch Forest,train
+0384,Birch Forest,train
+0385,Birch Forest,train
+0386,Birch Forest,train
+0387,Birch Forest,train
+0388,Birch Forest,train
+0389,Birch Forest,train
+0390,Birch Forest,train
+0391,Birch Forest,train
+0392,Birch Forest,train
+0393,Birch Forest,train
+0394,Birch Forest,train
+0395,Birch Forest,train
+0396,Birch Forest,test
+0397,Birch Forest,train
+0398,Birch Forest,train
+0399,Birch Forest,train
+0400,Birch Forest,train
+0401,Dark Forest,train
+0402,Dark Forest,train
+0403,Dark Forest,test
+0404,Dark Forest,train
+0405,Dark Forest,train
+0406,Dark Forest,train
+0407,Dark Forest,train
+0408,Dark Forest,train
+0409,Dark Forest,test
+0410,Dark Forest,train
+0411,Dark Forest,train
+0412,Dark Forest,train
+0413,Dark Forest,train
+0414,Dark Forest,val
+0415,Dark Forest,train
+0416,Dark Forest,train
+0417,Dark Forest,train
+0418,Dark Forest,train
+0419,Dark Forest,train
+0420,Dark Forest,test
+0421,Dark Forest,train
+0422,Dark Forest,train
+0423,Dark Forest,val
+0424,Dark Forest,val
+0425,Dark Forest,train
+0426,Dark Forest,train
+0427,Dark Forest,train
+0428,Dark Forest,test
+0429,Dark Forest,train
+0430,Dark Forest,train
+0431,Dark Forest,train
+0432,Dark Forest,train
+0433,Dark Forest,train
+0434,Dark Forest,train
+0435,Dark Forest,train
+0436,Dark Forest,train
+0437,Dark Forest,train
+0438,Dark Forest,val
+0439,Dark Forest,train
+0440,Dark Forest,train
+0441,Snowy Taiga,train
+0442,Snowy Taiga,val
+0443,Snowy Taiga,train
+0444,Snowy Taiga,train
+0445,Snowy Taiga,train
+0446,Snowy Taiga,train
+0447,Snowy Taiga,train
+0448,Snowy Taiga,train
+0449,Snowy Taiga,train
+0450,Snowy Taiga,train
+0451,Snowy Taiga,train
+0452,Snowy Taiga,train
+0453,Snowy Taiga,val
+0454,Snowy Taiga,train
+0455,Snowy Taiga,test
+0456,Snowy Taiga,train
+0457,Snowy Taiga,train
+0458,Snowy Taiga,train
+0459,Snowy Taiga,train
+0460,Snowy Taiga,test
+0461,Snowy Taiga,train
+0462,Snowy Taiga,val
+0463,Snowy Taiga,test
+0464,Snowy Taiga,train
+0465,Snowy Taiga,train
+0466,Snowy Taiga,val
+0467,Snowy Taiga,train
+0468,Snowy Taiga,train
+0469,Snowy Taiga,train
+0470,Snowy Taiga,train
+0471,Snowy Taiga,train
+0472,Snowy Taiga,train
+0473,Snowy Taiga,train
+0474,Snowy Taiga,train
+0475,Snowy Taiga,train
+0476,Snowy Taiga,train
+0477,Snowy Taiga,train
+0478,Snowy Taiga,test
+0479,Snowy Taiga,train
+0480,Snowy Taiga,train
+0481,Old Growth Birch Forest,test
+0482,Old Growth Birch Forest,train
+0483,Old Growth Birch Forest,train
+0484,Old Growth Birch Forest,train
+0485,Old Growth Birch Forest,val
+0486,Old Growth Birch Forest,train
+0487,Old Growth Birch Forest,train
+0488,Old Growth Birch Forest,train
+0489,Old Growth Birch Forest,train
+0490,Old Growth Birch Forest,train
+0491,Old Growth Birch Forest,train
+0492,Old Growth Birch Forest,train
+0493,Old Growth Birch Forest,test
+0494,Old Growth Birch Forest,train
+0495,Old Growth Birch Forest,train
+0496,Old Growth Birch Forest,train
+0497,Old Growth Birch Forest,train
+0498,Old Growth Birch Forest,train
+0499,Old Growth Birch Forest,train
+0500,Old Growth Birch Forest,train
+0501,Old Growth Birch Forest,train
+0502,Old Growth Birch Forest,val
+0503,Old Growth Birch Forest,train
+0504,Old Growth Birch Forest,val
+0505,Old Growth Birch Forest,train
+0506,Old Growth Birch Forest,train
+0507,Old Growth Birch Forest,train
+0508,Old Growth Birch Forest,val
+0509,Old Growth Birch Forest,train
+0510,Old Growth Birch Forest,train
+0511,Old Growth Birch Forest,train
+0512,Old Growth Birch Forest,train
+0513,Old Growth Birch Forest,train
+0514,Old Growth Birch Forest,test
+0515,Old Growth Birch Forest,test
+0516,Old Growth Birch Forest,train
+0517,Old Growth Birch Forest,train
+0518,Old Growth Birch Forest,train
+0519,Old Growth Birch Forest,train
+0520,Old Growth Birch Forest,train
+0521,Old Growth Pine Taiga,train
+0522,Old Growth Pine Taiga,train
+0523,Old Growth Pine Taiga,train
+0524,Old Growth Pine Taiga,train
+0525,Old Growth Pine Taiga,train
+0526,Old Growth Pine Taiga,train
+0527,Old Growth Pine Taiga,train
+0528,Old Growth Pine Taiga,train
+0529,Old Growth Pine Taiga,train
+0530,Old Growth Pine Taiga,train
+0531,Old Growth Pine Taiga,train
+0532,Old Growth Pine Taiga,train
+0533,Old Growth Pine Taiga,train
+0534,Old Growth Pine Taiga,val
+0535,Old Growth Pine Taiga,train
+0536,Old Growth Pine Taiga,train
+0537,Old Growth Pine Taiga,train
+0538,Old Growth Pine Taiga,train
+0539,Old Growth Pine Taiga,train
+0540,Old Growth Pine Taiga,train
+0541,Old Growth Pine Taiga,test
+0542,Old Growth Pine Taiga,train
+0543,Old Growth Pine Taiga,train
+0544,Old Growth Pine Taiga,train
+0545,Old Growth Pine Taiga,train
+0546,Old Growth Pine Taiga,train
+0547,Old Growth Pine Taiga,train
+0548,Old Growth Pine Taiga,train
+0549,Old Growth Pine Taiga,val
+0550,Old Growth Pine Taiga,test
+0551,Old Growth Pine Taiga,train
+0552,Old Growth Pine Taiga,train
+0553,Old Growth Pine Taiga,val
+0554,Old Growth Pine Taiga,train
+0555,Old Growth Pine Taiga,train
+0556,Old Growth Pine Taiga,val
+0557,Old Growth Pine Taiga,train
+0558,Old Growth Pine Taiga,test
+0559,Old Growth Pine Taiga,test
+0560,Old Growth Pine Taiga,train
+0561,Old Growth Spruce Taiga,val
+0562,Old Growth Spruce Taiga,train
+0563,Old Growth Spruce Taiga,train
+0564,Old Growth Spruce Taiga,train
+0565,Old Growth Spruce Taiga,train
+0566,Old Growth Spruce Taiga,train
+0567,Old Growth Spruce Taiga,val
+0568,Old Growth Spruce Taiga,train
+0569,Old Growth Spruce Taiga,train
+0570,Old Growth Spruce Taiga,val
+0571,Old Growth Spruce Taiga,train
+0572,Old Growth Spruce Taiga,train
+0573,Old Growth Spruce Taiga,train
+0574,Old Growth Spruce Taiga,train
+0575,Old Growth Spruce Taiga,train
+0576,Old Growth Spruce Taiga,test
+0577,Old Growth Spruce Taiga,train
+0578,Old Growth Spruce Taiga,train
+0579,Old Growth Spruce Taiga,train
+0580,Old Growth Spruce Taiga,train
+0581,Old Growth Spruce Taiga,train
+0582,Old Growth Spruce Taiga,train
+0583,Old Growth Spruce Taiga,train
+0584,Old Growth Spruce Taiga,train
+0585,Old Growth Spruce Taiga,test
+0586,Old Growth Spruce Taiga,test
+0587,Old Growth Spruce Taiga,train
+0588,Old Growth Spruce Taiga,val
+0589,Old Growth Spruce Taiga,train
+0590,Old Growth Spruce Taiga,train
+0591,Old Growth Spruce Taiga,train
+0592,Old Growth Spruce Taiga,test
+0593,Old Growth Spruce Taiga,train
+0594,Old Growth Spruce Taiga,train
+0595,Old Growth Spruce Taiga,train
+0596,Old Growth Spruce Taiga,train
+0597,Old Growth Spruce Taiga,train
+0598,Old Growth Spruce Taiga,train
+0599,Old Growth Spruce Taiga,train
+0600,Old Growth Spruce Taiga,train
+0601,Bamboo Jungle,train
+0602,Bamboo Jungle,train
+0603,Bamboo Jungle,train
+0604,Bamboo Jungle,train
+0605,Bamboo Jungle,val
+0606,Bamboo Jungle,train
+0607,Bamboo Jungle,train
+0608,Bamboo Jungle,train
+0609,Bamboo Jungle,train
+0610,Bamboo Jungle,train
+0611,Bamboo Jungle,train
+0612,Bamboo Jungle,train
+0613,Bamboo Jungle,train
+0614,Bamboo Jungle,train
+0615,Bamboo Jungle,train
+0616,Bamboo Jungle,test
+0617,Bamboo Jungle,train
+0618,Bamboo Jungle,test
+0619,Bamboo Jungle,val
+0620,Bamboo Jungle,train
+0621,Bamboo Jungle,train
+0622,Bamboo Jungle,train
+0623,Bamboo Jungle,train
+0624,Bamboo Jungle,train
+0625,Bamboo Jungle,train
+0626,Bamboo Jungle,train
+0627,Bamboo Jungle,train
+0628,Bamboo Jungle,train
+0629,Bamboo Jungle,val
+0630,Bamboo Jungle,train
+0631,Bamboo Jungle,train
+0632,Bamboo Jungle,test
+0633,Bamboo Jungle,train
+0634,Bamboo Jungle,test
+0635,Bamboo Jungle,train
+0636,Bamboo Jungle,train
+0637,Bamboo Jungle,train
+0638,Bamboo Jungle,val
+0639,Bamboo Jungle,train
+0640,Bamboo Jungle,train
+0641,Grove,train
+0642,Grove,train
+0643,Grove,train
+0644,Grove,train
+0645,Grove,train
+0646,Grove,train
+0647,Grove,train
+0648,Grove,train
+0649,Grove,train
+0650,Grove,train
+0651,Grove,train
+0652,Grove,train
+0653,Grove,train
+0654,Grove,train
+0655,Grove,test
+0656,Grove,train
+0657,Grove,train
+0658,Grove,val
+0659,Grove,train
+0660,Grove,train
+0661,Grove,train
+0662,Grove,train
+0663,Grove,train
+0664,Grove,train
+0665,Grove,train
+0666,Grove,train
+0667,Grove,train
+0668,Grove,val
+0669,Grove,train
+0670,Grove,train
+0671,Grove,train
+0672,Grove,test
+0673,Grove,train
+0674,Grove,train
+0675,Grove,test
+0676,Grove,train
+0677,Grove,val
+0678,Grove,val
+0679,Grove,train
+0680,Grove,test
+0681,Cherry Grove,train
+0682,Cherry Grove,val
+0683,Cherry Grove,train
+0684,Cherry Grove,val
+0685,Cherry Grove,train
+0686,Cherry Grove,test
+0687,Cherry Grove,train
+0688,Cherry Grove,train
+0689,Cherry Grove,train
+0690,Cherry Grove,train
+0691,Cherry Grove,train
+0692,Cherry Grove,train
+0693,Cherry Grove,train
+0694,Cherry Grove,train
+0695,Cherry Grove,train
+0696,Cherry Grove,train
+0697,Cherry Grove,test
+0698,Cherry Grove,test
+0699,Cherry Grove,train
+0700,Cherry Grove,train
+0701,Cherry Grove,train
+0702,Cherry Grove,train
+0703,Cherry Grove,val
+0704,Cherry Grove,train
+0705,Cherry Grove,train
+0706,Cherry Grove,train
+0707,Cherry Grove,test
+0708,Cherry Grove,train
+0709,Cherry Grove,train
+0710,Cherry Grove,train
+0711,Cherry Grove,val
+0712,Cherry Grove,train
+0713,Cherry Grove,train
+0714,Cherry Grove,train
+0715,Cherry Grove,train
+0716,Cherry Grove,train
+0717,Cherry Grove,train
+0718,Cherry Grove,train
+0719,Cherry Grove,train
+0720,Cherry Grove,train
+0721,Windswept Hills,train
+0722,Windswept Hills,train
+0723,Windswept Hills,train
+0724,Windswept Hills,train
+0725,Windswept Hills,val
+0726,Windswept Hills,train
+0727,Windswept Hills,val
+0728,Windswept Hills,train
+0729,Windswept Hills,train
+0730,Windswept Hills,train
+0731,Windswept Hills,train
+0732,Windswept Hills,train
+0733,Windswept Hills,val
+0734,Windswept Hills,train
+0735,Windswept Hills,train
+0736,Windswept Hills,val
+0737,Windswept Hills,train
+0738,Windswept Hills,train
+0739,Windswept Hills,train
+0740,Windswept Hills,test
+0741,Windswept Hills,train
+0742,Windswept Hills,train
+0743,Windswept Hills,train
+0744,Windswept Hills,train
+0745,Windswept Hills,test
+0746,Windswept Hills,test
+0747,Windswept Hills,train
+0748,Windswept Hills,train
+0749,Windswept Hills,train
+0750,Windswept Hills,train
+0751,Windswept Hills,train
+0752,Windswept Hills,train
+0753,Windswept Hills,train
+0754,Windswept Hills,train
+0755,Windswept Hills,train
+0756,Windswept Hills,train
+0757,Windswept Hills,test
+0758,Windswept Hills,train
+0759,Windswept Hills,train
+0760,Windswept Hills,train
+0761,Windswept Forest,train
+0762,Windswept Forest,train
+0763,Windswept Forest,train
+0764,Windswept Forest,train
+0765,Windswept Forest,train
+0766,Windswept Forest,val
+0767,Windswept Forest,train
+0768,Windswept Forest,train
+0769,Windswept Forest,train
+0770,Windswept Forest,train
+0771,Windswept Forest,train
+0772,Windswept Forest,train
+0773,Windswept Forest,train
+0774,Windswept Forest,train
+0775,Windswept Forest,train
+0776,Windswept Forest,val
+0777,Windswept Forest,train
+0778,Windswept Forest,test
+0779,Windswept Forest,train
+0780,Windswept Forest,train
+0781,Windswept Forest,val
+0782,Windswept Forest,train
+0783,Windswept Forest,train
+0784,Windswept Forest,train
+0785,Windswept Forest,train
+0786,Windswept Forest,train
+0787,Windswept Forest,train
+0788,Windswept Forest,test
+0789,Windswept Forest,train
+0790,Windswept Forest,test
+0791,Windswept Forest,train
+0792,Windswept Forest,train
+0793,Windswept Forest,train
+0794,Windswept Forest,train
+0795,Windswept Forest,train
+0796,Windswept Forest,train
+0797,Windswept Forest,val
+0798,Windswept Forest,test
+0799,Windswept Forest,train
+0800,Windswept Forest,train
+0801,Stony Shore,train
+0802,Stony Shore,test
+0803,Stony Shore,train
+0804,Stony Shore,train
+0805,Stony Shore,train
+0806,Stony Shore,val
+0807,Stony Shore,train
+0808,Stony Shore,train
+0809,Stony Shore,train
+0810,Stony Shore,train
+0811,Stony Shore,train
+0812,Stony Shore,train
+0813,Stony Shore,train
+0814,Stony Shore,train
+0815,Stony Shore,val
+0816,Stony Shore,train
+0817,Stony Shore,train
+0818,Stony Shore,train
+0819,Stony Shore,val
+0820,Stony Shore,train
+0821,Stony Shore,train
+0822,Stony Shore,train
+0823,Stony Shore,train
+0824,Stony Shore,train
+0825,Stony Shore,train
+0826,Stony Shore,val
+0827,Stony Shore,train
+0828,Stony Shore,train
+0829,Stony Shore,test
+0830,Stony Shore,train
+0831,Stony Shore,test
+0832,Stony Shore,test
+0833,Stony Shore,train
+0834,Stony Shore,train
+0835,Stony Shore,train
+0836,Stony Shore,train
+0837,Stony Shore,train
+0838,Stony Shore,train
+0839,Stony Shore,train
+0840,Stony Shore,train
+0841,Savanna Plateau,val
+0842,Savanna Plateau,train
+0843,Savanna Plateau,train
+0844,Savanna Plateau,train
+0845,Savanna Plateau,train
+0846,Savanna Plateau,train
+0847,Savanna Plateau,test
+0848,Savanna Plateau,train
+0849,Savanna Plateau,train
+0850,Savanna Plateau,train
+0851,Savanna Plateau,train
+0852,Savanna Plateau,val
+0853,Savanna Plateau,test
+0854,Savanna Plateau,train
+0855,Savanna Plateau,test
+0856,Savanna Plateau,train
+0857,Savanna Plateau,train
+0858,Savanna Plateau,train
+0859,Savanna Plateau,test
+0860,Savanna Plateau,val
+0861,Savanna Plateau,train
+0862,Savanna Plateau,train
+0863,Savanna Plateau,train
+0864,Savanna Plateau,val
+0865,Savanna Plateau,train
+0866,Savanna Plateau,train
+0867,Savanna Plateau,train
+0868,Savanna Plateau,train
+0869,Savanna Plateau,train
+0870,Savanna Plateau,train
+0871,Savanna Plateau,train
+0872,Savanna Plateau,train
+0873,Savanna Plateau,train
+0874,Savanna Plateau,train
+0875,Savanna Plateau,train
+0876,Savanna Plateau,train
+0877,Savanna Plateau,train
+0878,Savanna Plateau,train
+0879,Savanna Plateau,train
+0880,Savanna Plateau,train
+0881,Windswept Gravelly Hills,train
+0882,Windswept Gravelly Hills,train
+0883,Windswept Gravelly Hills,train
+0884,Windswept Gravelly Hills,train
+0885,Windswept Gravelly Hills,train
+0886,Windswept Gravelly Hills,test
+0887,Windswept Gravelly Hills,train
+0888,Windswept Gravelly Hills,val
+0889,Windswept Gravelly Hills,train
+0890,Windswept Gravelly Hills,train
+0891,Windswept Gravelly Hills,train
+0892,Windswept Gravelly Hills,train
+0893,Windswept Gravelly Hills,train
+0894,Windswept Gravelly Hills,train
+0895,Windswept Gravelly Hills,val
+0896,Windswept Gravelly Hills,test
+0897,Windswept Gravelly Hills,train
+0898,Windswept Gravelly Hills,train
+0899,Windswept Gravelly Hills,train
+0900,Windswept Gravelly Hills,test
+0901,Windswept Gravelly Hills,train
+0902,Windswept Gravelly Hills,train
+0903,Windswept Gravelly Hills,train
+0904,Windswept Gravelly Hills,train
+0905,Windswept Gravelly Hills,val
+0906,Windswept Gravelly Hills,train
+0907,Windswept Gravelly Hills,val
+0908,Windswept Gravelly Hills,train
+0909,Windswept Gravelly Hills,train
+0910,Windswept Gravelly Hills,train
+0911,Windswept Gravelly Hills,train
+0912,Windswept Gravelly Hills,train
+0913,Windswept Gravelly Hills,train
+0914,Windswept Gravelly Hills,train
+0915,Windswept Gravelly Hills,train
+0916,Windswept Gravelly Hills,train
+0917,Windswept Gravelly Hills,test
+0918,Windswept Gravelly Hills,train
+0919,Windswept Gravelly Hills,train
+0920,Windswept Gravelly Hills,train
+0921,Windswept Savanna,train
+0922,Windswept Savanna,train
+0923,Windswept Savanna,train
+0924,Windswept Savanna,train
+0925,Windswept Savanna,val
+0926,Windswept Savanna,train
+0927,Windswept Savanna,train
+0928,Windswept Savanna,train
+0929,Windswept Savanna,train
+0930,Windswept Savanna,train
+0931,Windswept Savanna,train
+0932,Windswept Savanna,train
+0933,Windswept Savanna,val
+0934,Windswept Savanna,train
+0935,Windswept Savanna,test
+0936,Windswept Savanna,train
+0937,Windswept Savanna,val
+0938,Windswept Savanna,train
+0939,Windswept Savanna,test
+0940,Windswept Savanna,train
+0941,Windswept Savanna,train
+0942,Windswept Savanna,train
+0943,Windswept Savanna,train
+0944,Windswept Savanna,train
+0945,Windswept Savanna,train
+0946,Windswept Savanna,train
+0947,Windswept Savanna,train
+0948,Windswept Savanna,train
+0949,Windswept Savanna,train
+0950,Windswept Savanna,test
+0951,Windswept Savanna,train
+0952,Windswept Savanna,train
+0953,Windswept Savanna,train
+0954,Windswept Savanna,train
+0955,Windswept Savanna,train
+0956,Windswept Savanna,train
+0957,Windswept Savanna,train
+0958,Windswept Savanna,train
+0959,Windswept Savanna,test
+0960,Windswept Savanna,val
+0961,Meadow,train
+0962,Meadow,test
+0963,Meadow,val
+0964,Meadow,train
+0965,Meadow,train
+0966,Meadow,test
+0967,Meadow,train
+0968,Meadow,train
+0969,Meadow,train
+0970,Meadow,train
+0971,Meadow,train
+0972,Meadow,train
+0973,Meadow,train
+0974,Meadow,train
+0975,Meadow,val
+0976,Meadow,train
+0977,Meadow,test
+0978,Meadow,val
+0979,Meadow,train
+0980,Meadow,train
+0981,Meadow,train
+0982,Meadow,train
+0983,Meadow,train
+0984,Meadow,train
+0985,Meadow,train
+0986,Meadow,train
+0987,Meadow,train
+0988,Meadow,train
+0989,Meadow,train
+0990,Meadow,train
+0991,Meadow,train
+0992,Meadow,train
+0993,Meadow,train
+0994,Meadow,train
+0995,Meadow,train
+0996,Meadow,train
+0997,Meadow,train
+0998,Meadow,val
+0999,Meadow,test
+1000,Meadow,train
+1001,Snowy Slopes,val
+1002,Snowy Slopes,train
+1003,Snowy Slopes,train
+1004,Snowy Slopes,train
+1005,Snowy Slopes,train
+1006,Snowy Slopes,train
+1007,Snowy Slopes,train
+1008,Snowy Slopes,test
+1009,Snowy Slopes,train
+1010,Snowy Slopes,train
+1011,Snowy Slopes,train
+1012,Snowy Slopes,train
+1013,Snowy Slopes,train
+1014,Snowy Slopes,train
+1015,Snowy Slopes,train
+1016,Snowy Slopes,train
+1017,Snowy Slopes,test
+1018,Snowy Slopes,train
+1019,Snowy Slopes,train
+1020,Snowy Slopes,train
+1021,Snowy Slopes,test
+1022,Snowy Slopes,train
+1023,Snowy Slopes,train
+1024,Snowy Slopes,train
+1025,Snowy Slopes,train
+1026,Snowy Slopes,test
+1027,Snowy Slopes,val
+1028,Snowy Slopes,train
+1029,Snowy Slopes,train
+1030,Snowy Slopes,val
+1031,Snowy Slopes,train
+1032,Snowy Slopes,train
+1033,Snowy Slopes,val
+1034,Snowy Slopes,train
+1035,Snowy Slopes,train
+1036,Snowy Slopes,train
+1037,Snowy Slopes,train
+1038,Snowy Slopes,train
+1039,Snowy Slopes,train
+1040,Snowy Slopes,train
+1041,Frozen Peaks,train
+1042,Frozen Peaks,train
+1043,Frozen Peaks,train
+1044,Frozen Peaks,train
+1045,Frozen Peaks,train
+1046,Frozen Peaks,train
+1047,Frozen Peaks,train
+1048,Frozen Peaks,test
+1049,Frozen Peaks,train
+1050,Frozen Peaks,test
+1051,Frozen Peaks,train
+1052,Frozen Peaks,train
+1053,Frozen Peaks,train
+1054,Frozen Peaks,train
+1055,Frozen Peaks,train
+1056,Frozen Peaks,train
+1057,Frozen Peaks,train
+1058,Frozen Peaks,val
+1059,Frozen Peaks,test
+1060,Frozen Peaks,train
+1061,Frozen Peaks,train
+1062,Frozen Peaks,train
+1063,Frozen Peaks,train
+1064,Frozen Peaks,train
+1065,Frozen Peaks,train
+1066,Frozen Peaks,train
+1067,Frozen Peaks,val
+1068,Frozen Peaks,train
+1069,Frozen Peaks,train
+1070,Frozen Peaks,train
+1071,Frozen Peaks,val
+1072,Frozen Peaks,test
+1073,Frozen Peaks,val
+1074,Frozen Peaks,train
+1075,Frozen Peaks,train
+1076,Frozen Peaks,train
+1077,Frozen Peaks,train
+1078,Frozen Peaks,train
+1079,Frozen Peaks,train
+1080,Frozen Peaks,train
+1081,Jagged Peaks,train
+1082,Jagged Peaks,train
+1083,Jagged Peaks,val
+1084,Jagged Peaks,train
+1085,Jagged Peaks,train
+1086,Jagged Peaks,train
+1087,Jagged Peaks,train
+1088,Jagged Peaks,train
+1089,Jagged Peaks,train
+1090,Jagged Peaks,train
+1091,Jagged Peaks,train
+1092,Jagged Peaks,train
+1093,Jagged Peaks,test
+1094,Jagged Peaks,train
+1095,Jagged Peaks,val
+1096,Jagged Peaks,test
+1097,Jagged Peaks,train
+1098,Jagged Peaks,train
+1099,Jagged Peaks,train
+1100,Jagged Peaks,train
+1101,Jagged Peaks,test
+1102,Jagged Peaks,train
+1103,Jagged Peaks,train
+1104,Jagged Peaks,train
+1105,Jagged Peaks,val
+1106,Jagged Peaks,train
+1107,Jagged Peaks,val
+1108,Jagged Peaks,train
+1109,Jagged Peaks,train
+1110,Jagged Peaks,test
+1111,Jagged Peaks,train
+1112,Jagged Peaks,train
+1113,Jagged Peaks,train
+1114,Jagged Peaks,train
+1115,Jagged Peaks,train
+1116,Jagged Peaks,train
+1117,Jagged Peaks,train
+1118,Jagged Peaks,train
+1119,Jagged Peaks,train
+1120,Jagged Peaks,train
+1121,Stony Peaks,train
+1122,Stony Peaks,train
+1123,Stony Peaks,val
+1124,Stony Peaks,train
+1125,Stony Peaks,val
+1126,Stony Peaks,train
+1127,Stony Peaks,train
+1128,Stony Peaks,train
+1129,Stony Peaks,train
+1130,Stony Peaks,train
+1131,Stony Peaks,train
+1132,Stony Peaks,train
+1133,Stony Peaks,train
+1134,Stony Peaks,train
+1135,Stony Peaks,train
+1136,Stony Peaks,train
+1137,Stony Peaks,train
+1138,Stony Peaks,train
+1139,Stony Peaks,train
+1140,Stony Peaks,train
+1141,Stony Peaks,test
+1142,Stony Peaks,test
+1143,Stony Peaks,train
+1144,Stony Peaks,train
+1145,Stony Peaks,test
+1146,Stony Peaks,train
+1147,Stony Peaks,train
+1148,Stony Peaks,train
+1149,Stony Peaks,train
+1150,Stony Peaks,train
+1151,Stony Peaks,train
+1152,Stony Peaks,val
+1153,Stony Peaks,train
+1154,Stony Peaks,train
+1155,Stony Peaks,test
+1156,Stony Peaks,train
+1157,Stony Peaks,train
+1158,Stony Peaks,train
+1159,Stony Peaks,val
+1160,Stony Peaks,train
+1161,Swamp,train
+1162,Swamp,train
+1163,Swamp,train
+1164,Swamp,train
+1165,Swamp,train
+1166,Swamp,test
+1167,Swamp,train
+1168,Swamp,train
+1169,Swamp,train
+1170,Swamp,val
+1171,Swamp,train
+1172,Swamp,train
+1173,Swamp,train
+1174,Swamp,train
+1175,Swamp,val
+1176,Swamp,test
+1177,Swamp,val
+1178,Swamp,train
+1179,Swamp,train
+1180,Swamp,train
+1181,Swamp,train
+1182,Swamp,train
+1183,Swamp,train
+1184,Swamp,train
+1185,Swamp,test
+1186,Swamp,train
+1187,Swamp,train
+1188,Swamp,train
+1189,Swamp,train
+1190,Swamp,val
+1191,Swamp,train
+1192,Swamp,test
+1193,Swamp,train
+1194,Swamp,train
+1195,Swamp,train
+1196,Swamp,train
+1197,Swamp,train
+1198,Swamp,train
+1199,Swamp,train
+1200,Swamp,train
+1201,Mangrove Swamp,test
+1202,Mangrove Swamp,test
+1203,Mangrove Swamp,train
+1204,Mangrove Swamp,val
+1205,Mangrove Swamp,train
+1206,Mangrove Swamp,train
+1207,Mangrove Swamp,train
+1208,Mangrove Swamp,train
+1209,Mangrove Swamp,train
+1210,Mangrove Swamp,train
+1211,Mangrove Swamp,train
+1212,Mangrove Swamp,train
+1213,Mangrove Swamp,train
+1214,Mangrove Swamp,train
+1215,Mangrove Swamp,val
+1216,Mangrove Swamp,train
+1217,Mangrove Swamp,train
+1218,Mangrove Swamp,test
+1219,Mangrove Swamp,val
+1220,Mangrove Swamp,train
+1221,Mangrove Swamp,train
+1222,Mangrove Swamp,train
+1223,Mangrove Swamp,train
+1224,Mangrove Swamp,train
+1225,Mangrove Swamp,train
+1226,Mangrove Swamp,test
+1227,Mangrove Swamp,train
+1228,Mangrove Swamp,train
+1229,Mangrove Swamp,train
+1230,Mangrove Swamp,train
+1231,Mangrove Swamp,train
+1232,Mangrove Swamp,val
+1233,Mangrove Swamp,train
+1234,Mangrove Swamp,train
+1235,Mangrove Swamp,train
+1236,Mangrove Swamp,train
+1237,Mangrove Swamp,train
+1238,Mangrove Swamp,train
+1239,Mangrove Swamp,train
+1240,Mangrove Swamp,train
+1241,Desert,train
+1242,Desert,train
+1243,Desert,train
+1244,Desert,train
+1245,Desert,val
+1246,Desert,train
+1247,Desert,train
+1248,Desert,val
+1249,Desert,train
+1250,Desert,train
+1251,Desert,test
+1252,Desert,train
+1253,Desert,train
+1254,Desert,train
+1255,Desert,train
+1256,Desert,train
+1257,Desert,test
+1258,Desert,train
+1259,Desert,test
+1260,Desert,train
+1261,Desert,train
+1262,Desert,val
+1263,Desert,train
+1264,Desert,train
+1265,Desert,train
+1266,Desert,train
+1267,Desert,train
+1268,Desert,train
+1269,Desert,train
+1270,Desert,val
+1271,Desert,test
+1272,Desert,train
+1273,Desert,train
+1274,Desert,train
+1275,Desert,train
+1276,Desert,train
+1277,Desert,train
+1278,Desert,train
+1279,Desert,train
+1280,Desert,train
+1281,Beach,train
+1282,Beach,train
+1283,Beach,train
+1284,Beach,train
+1285,Beach,test
+1286,Beach,train
+1287,Beach,train
+1288,Beach,val
+1289,Beach,val
+1290,Beach,train
+1291,Beach,train
+1292,Beach,train
+1293,Beach,train
+1294,Beach,train
+1295,Beach,test
+1296,Beach,train
+1297,Beach,train
+1298,Beach,train
+1299,Beach,train
+1300,Beach,val
+1301,Beach,train
+1302,Beach,train
+1303,Beach,train
+1304,Beach,train
+1305,Beach,train
+1306,Beach,train
+1307,Beach,val
+1308,Beach,train
+1309,Beach,train
+1310,Beach,test
+1311,Beach,train
+1312,Beach,train
+1313,Beach,train
+1314,Beach,train
+1315,Beach,train
+1316,Beach,train
+1317,Beach,train
+1318,Beach,train
+1319,Beach,train
+1320,Beach,test
+1321,Snowy Beach,train
+1322,Snowy Beach,train
+1323,Snowy Beach,train
+1324,Snowy Beach,test
+1325,Snowy Beach,train
+1326,Snowy Beach,train
+1327,Snowy Beach,train
+1328,Snowy Beach,val
+1329,Snowy Beach,train
+1330,Snowy Beach,train
+1331,Snowy Beach,train
+1332,Snowy Beach,train
+1333,Snowy Beach,val
+1334,Snowy Beach,train
+1335,Snowy Beach,train
+1336,Snowy Beach,train
+1337,Snowy Beach,train
+1338,Snowy Beach,val
+1339,Snowy Beach,train
+1340,Snowy Beach,train
+1341,Snowy Beach,train
+1342,Snowy Beach,train
+1343,Snowy Beach,test
+1344,Snowy Beach,test
+1345,Snowy Beach,train
+1346,Snowy Beach,val
+1347,Snowy Beach,train
+1348,Snowy Beach,train
+1349,Snowy Beach,train
+1350,Snowy Beach,train
+1351,Snowy Beach,train
+1352,Snowy Beach,train
+1353,Snowy Beach,train
+1354,Snowy Beach,train
+1355,Snowy Beach,test
+1356,Snowy Beach,train
+1357,Snowy Beach,train
+1358,Snowy Beach,train
+1359,Snowy Beach,train
+1360,Snowy Beach,train
+1361,Badlands,test
+1362,Badlands,test
+1363,Badlands,train
+1364,Badlands,train
+1365,Badlands,train
+1366,Badlands,train
+1367,Badlands,train
+1368,Badlands,train
+1369,Badlands,test
+1370,Badlands,train
+1371,Badlands,train
+1372,Badlands,val
+1373,Badlands,train
+1374,Badlands,train
+1375,Badlands,train
+1376,Badlands,val
+1377,Badlands,train
+1378,Badlands,train
+1379,Badlands,train
+1380,Badlands,train
+1381,Badlands,val
+1382,Badlands,train
+1383,Badlands,test
+1384,Badlands,train
+1385,Badlands,train
+1386,Badlands,train
+1387,Badlands,train
+1388,Badlands,train
+1389,Badlands,train
+1390,Badlands,train
+1391,Badlands,train
+1392,Badlands,train
+1393,Badlands,train
+1394,Badlands,train
+1395,Badlands,train
+1396,Badlands,train
+1397,Badlands,train
+1398,Badlands,train
+1399,Badlands,train
+1400,Badlands,val
+1401,Wooded Badlands,train
+1402,Wooded Badlands,train
+1403,Wooded Badlands,train
+1404,Wooded Badlands,train
+1405,Wooded Badlands,test
+1406,Wooded Badlands,test
+1407,Wooded Badlands,train
+1408,Wooded Badlands,train
+1409,Wooded Badlands,val
+1410,Wooded Badlands,val
+1411,Wooded Badlands,train
+1412,Wooded Badlands,train
+1413,Wooded Badlands,train
+1414,Wooded Badlands,train
+1415,Wooded Badlands,train
+1416,Wooded Badlands,train
+1417,Wooded Badlands,train
+1418,Wooded Badlands,train
+1419,Wooded Badlands,train
+1420,Wooded Badlands,train
+1421,Wooded Badlands,val
+1422,Wooded Badlands,train
+1423,Wooded Badlands,train
+1424,Wooded Badlands,train
+1425,Wooded Badlands,train
+1426,Wooded Badlands,train
+1427,Wooded Badlands,train
+1428,Wooded Badlands,train
+1429,Wooded Badlands,test
+1430,Wooded Badlands,train
+1431,Wooded Badlands,train
+1432,Wooded Badlands,test
+1433,Wooded Badlands,train
+1434,Wooded Badlands,train
+1435,Wooded Badlands,train
+1436,Wooded Badlands,train
+1437,Wooded Badlands,train
+1438,Wooded Badlands,val
+1439,Wooded Badlands,train
+1440,Wooded Badlands,train
+1441,Eroded Badlands,train
+1442,Eroded Badlands,train
+1443,Eroded Badlands,train
+1444,Eroded Badlands,train
+1445,Eroded Badlands,test
+1446,Eroded Badlands,val
+1447,Eroded Badlands,train
+1448,Eroded Badlands,train
+1449,Eroded Badlands,train
+1450,Eroded Badlands,test
+1451,Eroded Badlands,train
+1452,Eroded Badlands,train
+1453,Eroded Badlands,train
+1454,Eroded Badlands,train
+1455,Eroded Badlands,train
+1456,Eroded Badlands,train
+1457,Eroded Badlands,train
+1458,Eroded Badlands,train
+1459,Eroded Badlands,train
+1460,Eroded Badlands,train
+1461,Eroded Badlands,train
+1462,Eroded Badlands,train
+1463,Eroded Badlands,train
+1464,Eroded Badlands,test
+1465,Eroded Badlands,train
+1466,Eroded Badlands,train
+1467,Eroded Badlands,train
+1468,Eroded Badlands,val
+1469,Eroded Badlands,train
+1470,Eroded Badlands,train
+1471,Eroded Badlands,test
+1472,Eroded Badlands,train
+1473,Eroded Badlands,train
+1474,Eroded Badlands,train
+1475,Eroded Badlands,val
+1476,Eroded Badlands,val
+1477,Eroded Badlands,train
+1478,Eroded Badlands,train
+1479,Eroded Badlands,train
+1480,Eroded Badlands,train
+1481,Ocean,train
+1482,Ocean,val
+1483,Ocean,train
+1484,Ocean,train
+1485,Ocean,train
+1486,Ocean,train
+1487,Ocean,train
+1488,Ocean,test
+1489,Ocean,train
+1490,Ocean,train
+1491,Ocean,train
+1492,Ocean,train
+1493,Ocean,train
+1494,Ocean,train
+1495,Ocean,val
+1496,Ocean,train
+1497,Ocean,train
+1498,Ocean,test
+1499,Ocean,train
+1500,Ocean,train
+1501,Ocean,train
+1502,Ocean,train
+1503,Ocean,train
+1504,Ocean,test
+1505,Ocean,train
+1506,Ocean,train
+1507,Ocean,train
+1508,Ocean,val
+1509,Ocean,train
+1510,Ocean,train
+1511,Ocean,train
+1512,Ocean,train
+1513,Ocean,train
+1514,Ocean,train
+1515,Ocean,train
+1516,Ocean,test
+1517,Ocean,val
+1518,Ocean,train
+1519,Ocean,train
+1520,Ocean,train
+1521,River,train
+1522,River,train
+1523,River,train
+1524,River,test
+1525,River,train
+1526,River,test
+1527,River,train
+1528,River,train
+1529,River,train
+1530,River,train
+1531,River,test
+1532,River,train
+1533,River,train
+1534,River,train
+1535,River,train
+1536,River,train
+1537,River,train
+1538,River,test
+1539,River,train
+1540,River,train
+1541,River,train
+1542,River,train
+1543,River,train
+1544,River,train
+1545,River,train
+1546,River,train
+1547,River,train
+1548,River,val
+1549,River,val
+1550,River,train
+1551,River,train
+1552,River,val
+1553,River,train
+1554,River,train
+1555,River,train
+1556,River,val
+1557,River,train
+1558,River,train
+1559,River,train
+1560,River,train
+1561,Frozen Ocean,train
+1562,Frozen Ocean,train
+1563,Frozen Ocean,train
+1564,Frozen Ocean,train
+1565,Frozen Ocean,train
+1566,Frozen Ocean,train
+1567,Frozen Ocean,train
+1568,Frozen Ocean,train
+1569,Frozen Ocean,test
+1570,Frozen Ocean,train
+1571,Frozen Ocean,train
+1572,Frozen Ocean,test
+1573,Frozen Ocean,train
+1574,Frozen Ocean,train
+1575,Frozen Ocean,val
+1576,Frozen Ocean,train
+1577,Frozen Ocean,train
+1578,Frozen Ocean,train
+1579,Frozen Ocean,train
+1580,Frozen Ocean,train
+1581,Frozen Ocean,train
+1582,Frozen Ocean,train
+1583,Frozen Ocean,train
+1584,Frozen Ocean,train
+1585,Frozen Ocean,val
+1586,Frozen Ocean,train
+1587,Frozen Ocean,train
+1588,Frozen Ocean,test
+1589,Frozen Ocean,train
+1590,Frozen Ocean,train
+1591,Frozen Ocean,train
+1592,Frozen Ocean,test
+1593,Frozen Ocean,val
+1594,Frozen Ocean,train
+1595,Frozen Ocean,val
+1596,Frozen Ocean,train
+1597,Frozen Ocean,train
+1598,Frozen Ocean,train
+1599,Frozen Ocean,train
+1600,Frozen Ocean,train
+1601,Frozen River,train
+1602,Frozen River,train
+1603,Frozen River,train
+1604,Frozen River,train
+1605,Frozen River,train
+1606,Frozen River,test
+1607,Frozen River,train
+1608,Frozen River,train
+1609,Frozen River,train
+1610,Frozen River,train
+1611,Frozen River,val
+1612,Frozen River,train
+1613,Frozen River,train
+1614,Frozen River,train
+1615,Frozen River,val
+1616,Frozen River,train
+1617,Frozen River,train
+1618,Frozen River,train
+1619,Frozen River,train
+1620,Frozen River,test
+1621,Frozen River,train
+1622,Frozen River,val
+1623,Frozen River,train
+1624,Frozen River,train
+1625,Frozen River,train
+1626,Frozen River,test
+1627,Frozen River,train
+1628,Frozen River,train
+1629,Frozen River,train
+1630,Frozen River,train
+1631,Frozen River,train
+1632,Frozen River,train
+1633,Frozen River,train
+1634,Frozen River,test
+1635,Frozen River,train
+1636,Frozen River,val
+1637,Frozen River,train
+1638,Frozen River,train
+1639,Frozen River,train
+1640,Frozen River,train
+1641,Deep Ocean,train
+1642,Deep Ocean,train
+1643,Deep Ocean,train
+1644,Deep Ocean,train
+1645,Deep Ocean,test
+1646,Deep Ocean,train
+1647,Deep Ocean,train
+1648,Deep Ocean,train
+1649,Deep Ocean,train
+1650,Deep Ocean,test
+1651,Deep Ocean,train
+1652,Deep Ocean,train
+1653,Deep Ocean,train
+1654,Deep Ocean,train
+1655,Deep Ocean,train
+1656,Deep Ocean,train
+1657,Deep Ocean,train
+1658,Deep Ocean,val
+1659,Deep Ocean,train
+1660,Deep Ocean,val
+1661,Deep Ocean,test
+1662,Deep Ocean,train
+1663,Deep Ocean,train
+1664,Deep Ocean,train
+1665,Deep Ocean,train
+1666,Deep Ocean,train
+1667,Deep Ocean,train
+1668,Deep Ocean,train
+1669,Deep Ocean,test
+1670,Deep Ocean,train
+1671,Deep Ocean,val
+1672,Deep Ocean,train
+1673,Deep Ocean,train
+1674,Deep Ocean,train
+1675,Deep Ocean,train
+1676,Deep Ocean,train
+1677,Deep Ocean,train
+1678,Deep Ocean,val
+1679,Deep Ocean,train
+1680,Deep Ocean,train
+1681,Warm Ocean,train
+1682,Warm Ocean,train
+1683,Warm Ocean,test
+1684,Warm Ocean,train
+1685,Warm Ocean,train
+1686,Warm Ocean,train
+1687,Warm Ocean,train
+1688,Warm Ocean,train
+1689,Warm Ocean,train
+1690,Warm Ocean,train
+1691,Warm Ocean,val
+1692,Warm Ocean,test
+1693,Warm Ocean,train
+1694,Warm Ocean,train
+1695,Warm Ocean,train
+1696,Warm Ocean,test
+1697,Warm Ocean,train
+1698,Warm Ocean,train
+1699,Warm Ocean,train
+1700,Warm Ocean,train
+1701,Warm Ocean,train
+1702,Warm Ocean,train
+1703,Warm Ocean,train
+1704,Warm Ocean,train
+1705,Warm Ocean,train
+1706,Warm Ocean,train
+1707,Warm Ocean,train
+1708,Warm Ocean,train
+1709,Warm Ocean,val
+1710,Warm Ocean,train
+1711,Warm Ocean,train
+1712,Warm Ocean,train
+1713,Warm Ocean,test
+1714,Warm Ocean,val
+1715,Warm Ocean,train
+1716,Warm Ocean,val
+1717,Warm Ocean,train
+1718,Warm Ocean,train
+1719,Warm Ocean,train
+1720,Warm Ocean,train
+1721,Lukewarm Ocean,train
+1722,Lukewarm Ocean,train
+1723,Lukewarm Ocean,train
+1724,Lukewarm Ocean,train
+1725,Lukewarm Ocean,train
+1726,Lukewarm Ocean,test
+1727,Lukewarm Ocean,train
+1728,Lukewarm Ocean,train
+1729,Lukewarm Ocean,test
+1730,Lukewarm Ocean,train
+1731,Lukewarm Ocean,train
+1732,Lukewarm Ocean,train
+1733,Lukewarm Ocean,train
+1734,Lukewarm Ocean,train
+1735,Lukewarm Ocean,train
+1736,Lukewarm Ocean,train
+1737,Lukewarm Ocean,train
+1738,Lukewarm Ocean,train
+1739,Lukewarm Ocean,train
+1740,Lukewarm Ocean,test
+1741,Lukewarm Ocean,train
+1742,Lukewarm Ocean,val
+1743,Lukewarm Ocean,train
+1744,Lukewarm Ocean,train
+1745,Lukewarm Ocean,val
+1746,Lukewarm Ocean,train
+1747,Lukewarm Ocean,train
+1748,Lukewarm Ocean,train
+1749,Lukewarm Ocean,train
+1750,Lukewarm Ocean,train
+1751,Lukewarm Ocean,train
+1752,Lukewarm Ocean,train
+1753,Lukewarm Ocean,train
+1754,Lukewarm Ocean,train
+1755,Lukewarm Ocean,train
+1756,Lukewarm Ocean,val
+1757,Lukewarm Ocean,train
+1758,Lukewarm Ocean,train
+1759,Lukewarm Ocean,test
+1760,Lukewarm Ocean,val
+1761,Cold Ocean,train
+1762,Cold Ocean,train
+1763,Cold Ocean,val
+1764,Cold Ocean,train
+1765,Cold Ocean,train
+1766,Cold Ocean,train
+1767,Cold Ocean,train
+1768,Cold Ocean,train
+1769,Cold Ocean,train
+1770,Cold Ocean,test
+1771,Cold Ocean,test
+1772,Cold Ocean,test
+1773,Cold Ocean,train
+1774,Cold Ocean,train
+1775,Cold Ocean,train
+1776,Cold Ocean,train
+1777,Cold Ocean,train
+1778,Cold Ocean,train
+1779,Cold Ocean,train
+1780,Cold Ocean,train
+1781,Cold Ocean,train
+1782,Cold Ocean,train
+1783,Cold Ocean,train
+1784,Cold Ocean,val
+1785,Cold Ocean,train
+1786,Cold Ocean,train
+1787,Cold Ocean,val
+1788,Cold Ocean,train
+1789,Cold Ocean,val
+1790,Cold Ocean,train
+1791,Cold Ocean,train
+1792,Cold Ocean,train
+1793,Cold Ocean,train
+1794,Cold Ocean,train
+1795,Cold Ocean,train
+1796,Cold Ocean,train
+1797,Cold Ocean,train
+1798,Cold Ocean,train
+1799,Cold Ocean,test
+1800,Cold Ocean,train
+1801,Deep Frozen Ocean,train
+1802,Deep Frozen Ocean,train
+1803,Deep Frozen Ocean,train
+1804,Deep Frozen Ocean,train
+1805,Deep Frozen Ocean,train
+1806,Deep Frozen Ocean,val
+1807,Deep Frozen Ocean,test
+1808,Deep Frozen Ocean,val
+1809,Deep Frozen Ocean,train
+1810,Deep Frozen Ocean,train
+1811,Deep Frozen Ocean,train
+1812,Deep Frozen Ocean,train
+1813,Deep Frozen Ocean,train
+1814,Deep Frozen Ocean,train
+1815,Deep Frozen Ocean,train
+1816,Deep Frozen Ocean,train
+1817,Deep Frozen Ocean,train
+1818,Deep Frozen Ocean,train
+1819,Deep Frozen Ocean,val
+1820,Deep Frozen Ocean,train
+1821,Deep Frozen Ocean,train
+1822,Deep Frozen Ocean,train
+1823,Deep Frozen Ocean,train
+1824,Deep Frozen Ocean,test
+1825,Deep Frozen Ocean,train
+1826,Deep Frozen Ocean,train
+1827,Deep Frozen Ocean,train
+1828,Deep Frozen Ocean,train
+1829,Deep Frozen Ocean,train
+1830,Deep Frozen Ocean,train
+1831,Deep Frozen Ocean,test
+1832,Deep Frozen Ocean,train
+1833,Deep Frozen Ocean,train
+1834,Deep Frozen Ocean,val
+1835,Deep Frozen Ocean,train
+1836,Deep Frozen Ocean,test
+1837,Deep Frozen Ocean,train
+1838,Deep Frozen Ocean,train
+1839,Deep Frozen Ocean,train
+1840,Deep Frozen Ocean,train
