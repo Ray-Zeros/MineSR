@@ -6,16 +6,10 @@
 </p>
 
 ## Overview
-<table style="width: 100%; border-collapse: collapse; border: none;">
-  <tr style="border: none;">
-    <td style="width: 50%; border: none;">
-      <img src="assets/banner_HR.png" width="100%" alt="HR/0719.png">
-    </td>
-    <td style="width: 50%; border: none;">
-      <img src="assets/banner_LR.png" width="100%" alt="LR/0719.png">
-    </td>
-  </tr>
-</table>
+<p align="center">
+  <img src="assets/banner_HR.png" width="45%" />
+  <img src="assets/banner_LR.png" width="45%" />
+</p>
 
 This repository provides automated scripts for creating the **MineSR Dataset**. The MineSR dataset aims to provide paired high-resolution (1080P, acquired via mod) and low-resolution (270P, acquired via vanilla screenshots) images of Minecraft to support the training of 4x super-resolution models.
 

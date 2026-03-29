@@ -7,16 +7,10 @@
 </p>
 
 ## 概述
-<table style="width: 100%; border-collapse: collapse; border: none;">
-  <tr style="border: none;">
-    <td style="width: 50%; border: none;">
-      <img src="assets/banner_HR.png" width="100%" alt="HR/0719.png">
-    </td>
-    <td style="width: 50%; border: none;">
-      <img src="assets/banner_LR.png" width="100%" alt="LR/0719.png">
-    </td>
-  </tr>
-</table>
+<p align="center">
+  <img src="assets/banner_HR.png" width="45%" />
+  <img src="assets/banner_LR.png" width="45%" />
+</p>
 
 本仓库提供了制作 **MineSR 数据集** 的自动化脚本。MineSR 数据集旨在提供 Minecraft 高分辨率（1080P，通过模组获取）与低分辨率（270P，通过原版截图获取）成对图像，以支持 4x 超分辨率模型训练。
 
