@@ -1,13 +1,24 @@
 # MineSR: Minecraft 超分辨率数据集
 
-> 数据集正在制作中，完毕后会上传链接。
+[![DOI](https://img.shields.io/badge/DOI-10.5281/zenodo.19294458-blue.svg)](https://doi.org/10.5281/zenodo.19294458) [![Hugging Face Dataset](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-orange)](https://huggingface.co/datasets/RayZeros/MineSR) [![Baidu Netdisk](https://img.shields.io/badge/百度网盘-Baidu%20Netdisk-0066FF?style=flat-square&logo=icloud&logoColor=white)](https://pan.baidu.com/s/13VnUipBLR-k70_vqG21ExA?pwd=mcsr )
 
 <p align="center">
   <a href="README.md">English</a> | <a href="README_CN.md">简体中文</a>
 </p>
 
 ## 概述
-本仓库提供了制作 **MineSR 数据集** 的自动化脚本。MineSR 数据集旨在提供 Minecraft 高分辨率（1080P，通过模组获取）与低分辨率（270P，通过原版截图获取）成对图像，以支持超分辨率模型训练。
+<table style="width: 100%; border-collapse: collapse; border: none;">
+  <tr style="border: none;">
+    <td style="width: 50%; border: none;">
+      <img src="assets/banner_HR.png" width="100%" alt="HR/0719.png">
+    </td>
+    <td style="width: 50%; border: none;">
+      <img src="assets/banner_LR.png" width="100%" alt="LR/0719.png">
+    </td>
+  </tr>
+</table>
+
+本仓库提供了制作 **MineSR 数据集** 的自动化脚本。MineSR 数据集旨在提供 Minecraft 高分辨率（1080P，通过模组获取）与低分辨率（270P，通过原版截图获取）成对图像，以支持 4x 超分辨率模型训练。
 
 为了确保训练样本间的退化一致性，我们使用单一下采样策略，即利用 Resolution Control 模组修改 Buffer Size 以获取 HR（高分辨率图像）。
 
@@ -47,7 +58,7 @@ MineSR 的脚本化流程核心包含三步：
 
 | 版本号 | 版本信息| 图片数量 | 情况 |
 |:-----:|-------|:-----:|:-----:|
-| 1.0 | 主世界**地表**的所有群系(46个)| 1840 | 进行中🛠️ |
+| 1.0 | 主世界**地表**的所有群系(46个)| 1840 | 已完成✅ |
 | 1.1 | 添加主世界**地底**的3个群系*100对、主世界Features| / | 计划中📅 |
 | 1.2 | 添加主世界**地表**所有群系的雨/雪天情景| / | 计划中📅 |
 | 2.0 | 添加地狱的5个群系*50、地狱的Features| / | 计划中📅 |
@@ -301,3 +312,28 @@ python capture.py --config configs/capture_1_0_0.yaml
 
 虽然我使用 <https://github.com/UltimateBoomer/Resolution-Control> 作为了第二个截图方法，但我也对这个项目的1.20分支进行了魔改，使其能够在截图后的下一帧，继续进行相应分辨率的截图，从而达到近似“同时获取”的效果，经过测试，这个方案与这个项目的方案（混合原版截图）没有明显差距，详细来说，Minecraft的雨滴下落依旧不能在两张图像对应，这是一个根本性的问题。
 不过这个魔改还是可以让你的截图变得更优雅，或许你正好有这个需求，亦或是与某些点不谋而合。你可以在这里获取： <https://github.com/Ray-Zeros/Resolution-Control>
+
+## Citation
+如果你在研究中使用了此数据集，请根据你使用的**版本**，按下面的格式引用：
+```bibtex
+@dataset{MineSR,
+  author       = {Chen, Ruixi},
+  title        = {MineSR: Minecraft Super-Resolution Dataset},
+  version      = {1.0},
+  year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.19294458},
+  url          = {https://doi.org/10.5281/zenodo.19294458}
+}
+```
+**APA Style:**
+Chen, Ruixi (2026). MineSR: Minecraft Super-Resolution Dataset (1.0) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.19294458
+
+### Version & DOI
+
+> **注意**：为确保严格的科学可重复性，您也可以引用特定版本。请参阅下表。
+
+| Version | Date       | Zenodo DOI                | Changes            |
+|-----|:-----:|-----|:-----:|
+| 1.0    | 2026-03-28 | [10.5281/zenodo.19294459](...)   | Initial release    |
+| Concept    | / | [10.5281/zenodo.19294458](...)   | / |
